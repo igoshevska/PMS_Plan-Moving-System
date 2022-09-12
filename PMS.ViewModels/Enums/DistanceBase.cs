@@ -8,8 +8,8 @@ namespace PMS.ViewModels.Enums
 {
     public  enum DistanceBase:int
     {
-        Distance10km = 10,
-        Distance50km = 50,
-        Distance100km = 100
+        FirstDisatnce = 10,
+        SecondDistance = 50,
+        ThirdDistance = 100
     }
 }

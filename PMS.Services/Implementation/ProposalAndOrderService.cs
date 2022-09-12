@@ -44,7 +44,7 @@ namespace PMS.Services.Implementation
         {
             try
             {
-                if (model.distance >= (int)DistanceBase.Distance10km)
+                if (model.distance >= (int)DistanceBase.FirstDisatnce)
                 {
                     var pricePropsal = new PriceProposal();
                     pricePropsal.Distance = model.distance;
@@ -219,20 +219,20 @@ namespace PMS.Services.Implementation
             {
                 int distancePrice = 0;
 
-                if (distance >= (int)DistanceBase.Distance10km && distance < (int)DistanceBase.Distance50km)
+                if (distance >= (int)DistanceBase.FirstDisatnce && distance < (int)DistanceBase.SecondDistance)
                 {
-                    distancePrice = (int)Prices.BasePriceAbove10Below50km +
-                        (distance * (int)Prices.PriceForEachKilometerAbove10km);
+                    distancePrice = (int)Prices.BasePriceAboveFirstBelowSecondDist +
+                        (distance * (int)Prices.PriceForEachKmAboveFirstDist);
                 }
-                else if (distance >= (int)DistanceBase.Distance50km && distance < (int)DistanceBase.Distance100km)
+                else if (distance >= (int)DistanceBase.SecondDistance && distance < (int)DistanceBase.ThirdDistance)
                 {
-                    distancePrice = (int)Prices.BasePriceAbove50Below100km +
-                       (distance * (int)Prices.PriceForEachKilometerAbove50km);
+                    distancePrice = (int)Prices.BasePriceAboveSecondBelowThirdDist +
+                       (distance * (int)Prices.PriceForEachKmAboveSecondDist);
                 }
-                else if (distance >= (int)DistanceBase.Distance100km)
+                else if (distance >= (int)DistanceBase.ThirdDistance)
                 {
-                    distancePrice = (int)Prices.BasePriceAbove100km +
-                       (distance * (int)Prices.PriceForEachKilometerAbove100km);
+                    distancePrice = (int)Prices.BasePriceAboveThirdDist +
+                       (distance * (int)Prices.PriceForEachKmAboveThirdDist);
                 }
 
                 return distancePrice;

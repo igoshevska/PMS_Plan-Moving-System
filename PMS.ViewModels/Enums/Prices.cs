@@ -8,12 +8,12 @@ namespace PMS.ViewModels.Enums
 {
     public enum Prices: int
     {
-        BasePriceAbove10Below50km = 1000,
-        PriceForEachKilometerAbove10km = 10,
-        BasePriceAbove50Below100km = 5000,
-        PriceForEachKilometerAbove50km = 8,
-        BasePriceAbove100km = 10000,
-        PriceForEachKilometerAbove100km = 7,
+        BasePriceAboveFirstBelowSecondDist = 1000,      
+        PriceForEachKmAboveFirstDist = 10,              
+        BasePriceAboveSecondBelowThirdDist = 5000,      
+        PriceForEachKmAboveSecondDist = 8,              
+        BasePriceAboveThirdDist = 10000, 
+        PriceForEachKmAboveThirdDist = 7,                
         PriceForPiano = 5000
     }
 
