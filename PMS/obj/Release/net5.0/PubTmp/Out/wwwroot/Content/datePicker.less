@@ -1,0 +1,183 @@
+﻿@import url(Variables.less);
+@import url(theme.less);
+
+/*#region calendar*/
+.calendar ul {
+    *:focus{
+        outline:none;
+    }
+    padding: 15px;
+    background: #fff;
+
+    li[ng-transclude] {
+        outline: none;
+
+        div {
+            outline: none;
+        }
+    }
+}
+
+.calendar table > thead > tr > th, .calendar table > thead > tr, .calendar table tr > td, .calendar em {
+    vertical-align: middle !important;
+    border-bottom: 0 solid @defaultThemeColor !important;
+    height: 30px;
+    font-weight: normal !important;
+    color: #9a9a9a;
+}
+
+.calendar .btn-default {
+    -ms-border-radius: 0;
+    border-radius: 0;
+    border-color: white;
+}
+
+.calendar .btn-sm, .btn-group-sm > .btn {
+    padding: 3px 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    min-width: 0;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    background: #4a505f;
+    border-color: #4a505f;
+    color: white;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.calendar .btn-sm:hover, .calendar .btn-group-sm > .btn:hover, .calendar .btn-sm:hover span, .calendar .btn-group-sm > .btn:hover span {
+    background: #e6eaed;
+}
+
+.calendar .text-muted:hover {
+    background: #e6eaed;
+}
+
+.calendar .text-center {
+    text-align: center;
+}
+
+.calendar table {
+    width: 100% !important;
+    background-color: transparent;
+    outline: none;
+}
+
+.calendar .btn-info.active {
+    color: #525d6b;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.calendar .text-info {
+    color: #525d6b !important;
+    font-size: 13px;
+    font-weight: bold !important;
+}
+
+.calendar .btn-info {
+    border-color: #444;
+}
+
+.calendar .btn-danger {
+    border-color: #444;
+}
+
+.calendar .btn-success {
+    color: #fff;
+    background-color: @defaultThemeColor;
+    border-color: @defaultThemeColor;
+    display: none;
+}
+
+.calendar p.input-group {
+    padding: 0;
+}
+
+.calendar b, .calendar strong {
+    font-weight: normal;
+}
+
+.calendar table .btn-default {
+    border-radius: 0;
+    border-color: transparent;
+    background: transparent;
+    color: #525d6b;
+    font-weight: normal;
+}
+
+.calendar .text-info {
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.calendar.m5 p {
+    margin-top: 0;
+}
+
+.calendar .form-group.uib-time input {
+    color: #fff;
+}
+
+.input-group-btn {
+    button {
+        background: #fff;
+        color: @leftMenuColor;
+        border-color: #ddd;
+
+        &:hover, &:active, &:visited, &:focus {
+            background: #fff;
+            color: @leftMenuColor;
+            border-color: #ddd;
+        }
+    }
+}
+
+.uib-datepicker-popup, .datetime-picker-dropdown {
+    *:focus {
+        outline: none !important;
+    }
+
+    .btn-default {
+        background: #fff !important;
+        color: #525d6b;
+        border: 1px solid #fff;
+
+        &:hover {
+            background: #e6eaed !important;
+        }
+
+        &.active {
+            border: 1px solid #525d6b;
+            font-weight: bold;
+        }
+    }
+
+    .uib-close {
+        background: #5b6878;
+        color: white;
+        border: 1px solid #525d6b;
+
+        &:active, &hover, &:focus, &:visited {
+            background: #5b6878;
+            color: white;
+            border: 1px solid #525d6b;
+        }
+    }
+
+    .uib-datepicker-current, .uib-clear {
+        background: #fff;
+        color: #525d6b;
+        border: 1px solid #fff;
+
+        &:active, &:hover, &:focus, &:visited {
+            background: #e6eaed;
+        }
+    }
+}
+/*#endregion calendar*/

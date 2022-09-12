@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="modal-header">
+        <h3 class="modal-title">Calculate price proposal</h3>
+    </div>
+    <form name="form" novalidate">
+        <div class="modal-body">
+            <div class="row brb">
+                <div class="col-xs-12" style="padding-left:100px; padding-right:100px; padding-top: 30px; padding-bottom:30px">
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Distance </span>
+                        <div ng-show="form.$submitted || form.distance.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.distance.$error.required" style="color:red"></span>
+                            <span ng-show="form.distance.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="number" min="10" ng-model="model.distance" placeholder="Distance" required />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">LivingArea </span>
+                        <div ng-show="form.$submitted || form.livingArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.livingArea.$error.required" style="color:red"></span>
+                            <span ng-show="form.livingArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="number" min="0" ng-model="model.livingArea" placeholder="LivingArea" required />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">AtticArea </span>
+                        <div ng-show="form.$submitted || form.atticArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.userLastName.$error.required" style="color:red"></span>
+                            <span ng-show="form.atticArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="number" min="0" ng-model="model.atticArea" placeholder="AtticArea"  />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Address from </span>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="text" ng-model="model.addressFrom" placeholder="Address from"  />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Address to </span>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="text" ng-model="model.addressTo" placeholder="Address to:" />
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" ng-model="model.hasPiano" style="margin-left:-15px; margin-bottom: 5px;  margin-top:5px; width:20px; height:20px" />
+                        </div>
+                        <div class="col-sm-3" style="margin-top:5px">
+                            <span style="margin-left:-15px">Piano </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <span class="pull-right">
+                <button class="btn btn-danger btn-lg" ng-click="cancel()">Cancel</button>
+                <button class="btn btn-info btn-lg" ng-click="createPriceProposal()" ng-disabled="form.$invalid">Calculate</button>
+            </span>
+        </div>
+    </form>
+
+
+</body>
+</html>

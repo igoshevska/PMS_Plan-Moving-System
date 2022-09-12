@@ -1,0 +1,173 @@
+<style>
+    /*modals*/
+    #user-modal-header {
+        background-color: royalblue;
+        color: white;
+    }
+
+    #user-modal-footer {
+        background-color: lightgrey;
+        border-top: 2px solid gray;
+    }
+
+    #error-modal-header {
+        background-color: crimson;
+        color: white;
+    }
+
+    #error-modal-footer {
+        background-color: lightgrey;
+        border-top: 2px solid gray;
+    }
+
+    /*buttons*/
+    .button-custom {
+        font-size: 16px;
+        font-weight: bold;
+        color: #1f1f1f;
+        background: #00ffff;
+        border-radius: 5px;
+    }
+
+        .button-custom:hover {
+            color: white;
+            background: #00dddd;
+        }
+
+        .button-custom:focus {
+            outline: none;
+        }
+
+    /*search field*/
+    #search-box-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 36px;
+        width: 280px;
+        border-width: 0px;
+        border-radius: 5px 0px 0px 5px;
+    }
+
+        #search-box-input:focus {
+            outline: none;
+        }
+
+    #search-box-delete {
+        position: absolute;
+        top: 0;
+        left: 255px;
+        margin-top: 5px;
+    }
+
+    /*table*/
+    table thead {
+        background-color: #999999;
+        color: #1f1f1f;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+    table tbody {
+        color: white;
+        font-size: medium;
+    }
+
+    .table-striped > tbody > tr:nth-child(odd) > td {
+        background-color: #505050;
+        border: none;
+    }
+
+    .table-striped > tbody > tr:nth-child(even) > td {
+        border: none;
+    }
+
+    .ng-table-counts > button {
+        border: 2px solid #999999;
+        background: rgb(0 0 0 / 0.00);
+        color: #00ffff;
+    }
+
+        .ng-table-counts > button:hover, .ng-table-counts > button:focus, .ng-table-counts > button.active, .ng-table-counts > button.active:hover, .ng-table-counts > button:visited {
+            background: #00ffff;
+            color: #1f1f1f;
+            outline: none;
+        }
+
+    .pagination > li > a {
+        border: 2px solid #999999;
+        background: rgb(0 0 0 / 0.00);
+        color: #00ffff;
+    }
+
+        .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > a:visited, .pagination > li > a:visited:hover {
+            border: 2px solid #999999;
+            background: #00ffff;
+            color: #1f1f1f;
+            outline: none;
+        }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <span>
+                <input type="text" ng-model="searchText" placeholder="Име/Презиме/Корисничко име/Е-маил" style="float:right" id="search-box-input" />
+                <i class="fa fa-times fa-2x" aria-hidden="true" style="float: left; cursor:pointer; width:10px; height:10px"
+                   id="search-box-delete" ng-show="searchText !==''" ng-click="DeleteSearchText()"></i>
+            </span>
+            <span style="margin-left:260px">
+                <button class="btn button-custom" style="width: 40px" ng-click="GetUserFiltered()">
+                    <i class="fa fa-search fa-2x" aria-hidden="true" style="float:right; cursor:pointer; width:10px; height:22px"></i>
+                </button>
+            </span>
+        </div>
+        <div class="col-sm-7"></div>
+        <div class="col-sm-1">
+            <button class="btn button-custom" style="float:right; width: 220px; text-transform: uppercase" ng-click="createEditUser(null)">
+                <span style="float:right; padding-left:15px">Додади корисник</span>
+                <i class="fa fa-plus-circle fa-2x" aria-hidden="true" style="float: right; cursor: pointer; height: 10px; width: 10px"></i>
+            </button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div>
+            <table ng-table="userDataTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <td header-class="Име">Име</td>
+                        <td header-class="Презиме">Презиме</td>
+                        <td header-class="Корисничко име">Корисничко име</td>
+                        <td header-class="Емаил">Е-пошта</td>
+                        <td header-class="Улога">Улога</td>
+                        <td header-class="Класа работник">Класа работник</td>
+                        <td header-class="Ативен">Ативен</td>
+                        <td header-class="Акции">Акции</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="u in allUsers">
+                        <td>{{u.name}}</td>
+                        <td>{{u.surname}}</td>
+                        <td>{{u.userName}}</td>
+                        <td>{{u.email}}</td>
+                        <td>{{u.role.name}}</td>
+                        <td>{{u.workerType.name}}</td>
+                        <td>
+                            <span ng-if="u.isActive"><i class="fa fa-check-square-o" aria-hidden="true" style="width:10px; height:10px;"></i></span>
+                            <span ng-if="!u.isActive"><i class="fa fa-square-o" aria-hidden="true" style="width:10px; height:10px;"></i></span>
+                        </td>
+                        <td>
+                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true" style="cursor:pointer; width:10px; height:10px; color: #00ffff" title="Измени корисник" ng-click="createEditUser(u)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="p-0" ng-show="totalRows == 0">
+                Не постојат корисници.
+            </div>
+        </div>
+    </div>
+
+</div>

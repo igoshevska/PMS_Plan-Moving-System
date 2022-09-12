@@ -1,0 +1,361 @@
+﻿/*#region variabless*/
+@import url(fonts.less);
+@import url(theme.less);
+
+/*@defaultFont: 'Open Sans';*/
+@topHeaderHeight: 63px;
+@mainTextColor: #525d6b;
+@mainFontSize: 13px;
+
+@logoTextColor: #ce4751;
+
+@statusGreen: #8bc34a;
+@statusRed: #e92020;
+@statusYellow: #fcb34c;
+@statusGrey: #707070;
+@statusBlue: @defaultThemeColor;
+
+
+
+@font-family-base: 'Open Sans', snas-serif;
+
+@font-size-base: 14px;
+@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base: 1.428571429; // 20/14
+@line-height-computed: floor((@font-size-base * @line-height-base)); // ~20px
+
+@headings-font-family: inherit;
+@headings-font-weight: 300;
+@headings-line-height: 1.1;
+@headings-color: inherit;
+
+@gray-darker: lighten(#000, 13.5%); // #222
+@gray-dark: lighten(#000, 20%); // #333
+@gray: lighten(#000, 33.5%); // #555
+@gray-light: lighten(#000, 46.7%); // #777
+@gray-lighter: lighten(#000, 70%); // #f7f7f7
+
+@zbase: #663333;
+@zlighter1: lighten(spin(@zbase, 5), 10%);
+@zlighter2: lighten(spin(@zbase, 10), 20%);
+@zdarker1: darken(spin(@zbase, -5), 10%);
+@zdarker2: darken(spin(@zbase, -10), 20%);
+
+
+
+@blueState: #7cb5ec;
+
+@dashboardColor1: @defaultThemeColor;
+@dashboardColor2: @secondThemeColor;
+@dashboardColor3: #aaafbd;
+@dashboardColor4: #dd9062;
+@dashboardColor5: #97ca8d;
+@dashboardColor6: #e6cb4e;
+@dashboardColor7: #7aa8cf;
+
+@xs-min: 480px;
+@sm-min: 768px;
+@md-min: 992px;
+@lg-min: 1200px;
+
+@xs-max: (@sm-min - 1);
+@sm-max: (@md-min - 1);
+@md-max: (@lg-min - 1);
+
+@phoneUp: ~"only screen and (min-width: @{xs-min})";
+@phone: ~"only screen and (min-width: @{xs-min}) and (max-width: @{xs-max})";
+@tabletUp: ~"only screen and (min-width: @{sm-min})";
+@tabletDown: ~"only screen and (max-width: @{sm-max})";
+
+@tablet: ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@desktopUp: ~"only screen and (min-width: @{md-min})";
+@desktop: ~"only screen and (min-width: @{md-min}) and (max-width: @{md-max})";
+@custom: ~"only screen and (min-width:1200px) and (max-width: 1300px)";
+@large: ~"only screen and (min-width: @{lg-min})";
+
+// **** PARENT-OT na boxovite sto se centriraat mora da ima position: relativ
+//   za centriranjeto da funkcionira ********
+
+.fullCenter() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.verticalCenter () {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// **************************************************************************//
+.noSelect () {
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+}
+
+.transition (@prop: all, @time: 0.2s, @ease: ease-in-out) {
+    -webkit-transition: @prop @time @ease;
+    -khtml-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -ie-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+
+.shadow (@shadow: -4px 4px 5px #e5e5e5) {
+    -webkit-box-shadow: @shadow;
+    -khtml-box-shadow: @shadow;
+    -moz-box-shadow: @shadow;
+    -ie-box-shadow: @shadow;
+    -o-box-shadow: @shadow;
+    -ms-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+
+.radius (@radius: 0) {
+    -webkit-border-radius: (@radius);
+    -khtml-border-radius: (@radius);
+    -moz-border-radius: (@radius);
+    -ie-border-radius: (@radius);
+    -o-border-radius: (@radius);
+    -ms-border-radius: (@radius);
+    border-radius: (@radius);
+}
+
+.border-top-radius(@radius) {
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+.border-right-radius(@radius) {
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+}
+
+.border-bottom-radius(@radius) {
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+.border-left-radius(@radius) {
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+
+.rotate(@degrees) {
+    -webkit-transform: rotate(@degrees);
+    -ms-transform: rotate(@degrees);
+    transform: rotate(@degrees);
+}
+
+.scale(@ratio, @ratio-y...) {
+    -webkit-transform: scale(@ratio, @ratio-y);
+    -ms-transform: scale(@ratio, @ratio-y);
+    transform: scale(@ratio, @ratio-y);
+}
+
+.translate(@x, @y) {
+    -webkit-transform: translate(@x, @y);
+    -ms-transform: translate(@x, @y);
+    transform: translate(@x, @y);
+}
+
+.skew(@x, @y) {
+    -webkit-transform: skew(@x, @y);
+    -ms-transform: skewX(@x) skewY(@y);
+    transform: skew(@x, @y);
+}
+
+.translate3d(@x, @y, @z) {
+    -webkit-transform: translate3d(@x, @y, @z);
+    transform: translate3d(@x, @y, @z);
+}
+
+.rotateX(@degrees) {
+    -webkit-transform: rotateX(@degrees);
+    -ms-transform: rotateX(@degrees);
+    transform: rotateX(@degrees);
+}
+
+.rotateY(@degrees) {
+    -webkit-transform: rotateY(@degrees);
+    -ms-transform: rotateY(@degrees);
+    transform: rotateY(@degrees);
+}
+
+.perspective(@perspective) {
+    -webkit-perspective: @perspective;
+    -moz-perspective: @perspective;
+    perspective: @perspective;
+}
+
+.perspective-origin(@perspective) {
+    -webkit-perspective-origin: @perspective;
+    -moz-perspective-origin: @perspective;
+    perspective-origin: @perspective;
+}
+
+.transform-origin(@origin) {
+    -webkit-transform-origin: @origin;
+    -moz-transform-origin: @origin;
+    -ms-transform-origin: @origin;
+    transform-origin: @origin;
+}
+
+.animation(@animation) {
+    -webkit-animation: @animation;
+    animation: @animation;
+}
+
+.animation-name(@name) {
+    -webkit-animation-name: @name;
+    animation-name: @name;
+}
+
+.animation-duration(@duration) {
+    -webkit-animation-duration: @duration;
+    animation-duration: @duration;
+}
+
+.animation-timing-function(@timing-function) {
+    -webkit-animation-timing-function: @timing-function;
+    animation-timing-function: @timing-function;
+}
+
+.animation-delay(@delay) {
+    -webkit-animation-delay: @delay;
+    animation-delay: @delay;
+}
+
+.animation-iteration-count(@iteration-count) {
+    -webkit-animation-iteration-count: @iteration-count;
+    animation-iteration-count: @iteration-count;
+}
+
+.animation-direction(@direction) {
+    -webkit-animation-direction: @direction;
+    animation-direction: @direction;
+}
+
+.opacity(@opacity) {
+    opacity: @opacity;
+    @opacity-ie: (@opacity * 100);
+    filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+
+.placeholder(@color: @defaultThemeColor) {
+    &::-moz-placeholder {
+        color: #757575;
+    }
+
+    &:-ms-input-placeholder {
+        color: #757575;
+    }
+
+    &::-webkit-input-placeholder {
+        color: #757575;
+    }
+}
+
+.content-columns(@width, @count, @gap) {
+    -webkit-column-width: @width;
+    -moz-column-width: @width;
+    column-width: @width;
+    -webkit-column-count: @count;
+    -moz-column-count: @count;
+    column-count: @count;
+    -webkit-column-gap: @gap;
+    -moz-column-gap: @gap;
+    column-gap: @gap;
+}
+
+.gradient (@color: #82a800, @start: #82a800, @stop: transparent) {
+    background: @color;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, @start), color-stop(1, @stop));
+    background: -ms-linear-gradient(bottom, @start, @stop);
+    background: -moz-linear-gradient(center bottom, @start 0%, @stop 100%);
+}
+
+
+
+.mixin (@zcolor) when (lightness(@zcolor) > 30%) {
+    background-color: black;
+}
+
+.mixin (@zcolor) when (lightness(@zcolor) =< 30%) {
+    background-color: white;
+}
+
+/*#endregion variabless*/
+
+
+/*#region div templates*/
+
+.divBox (@bg: red, @padding: 20px, @textColor: black, @fsize: 12px, @align: left) {
+    background: @bg;
+    padding: @padding;
+    text-align: @align;
+
+    h1 {
+        color: (darken(@textColor, 20%));
+        font-size: ceil((@fsize * 2.6));
+    }
+
+    h2 {
+        color: (darken(@textColor, 10%));
+        font-size: ceil((@fsize * 1.7));
+    }
+
+    p {
+        color: @textColor;
+        font-size: @fsize;
+        text-align: @align;
+    }
+
+    &:hover {
+        background-color: (darken(@bg, 10%));
+    }
+}
+
+.divBoxLight (@bg, @padding, @textColor, @fsize, @align) {
+    background: @bg;
+    padding: @padding;
+    text-align: @align;
+
+    h1 {
+        color: (lighten(@textColor, 20%));
+        font-size: floor((@fsize * 2.6));
+    }
+
+    h2 {
+        color: (lighten(@textColor, 10%));
+        font-size: floor((@fsize * 1.7));
+    }
+
+    p {
+        color: @textColor;
+        font-size: @fsize;
+        text-align: @align;
+    }
+
+    &:hover {
+        background-color: (lighten(@bg, 10%));
+    }
+}
+
+/*#endregion div templates*/

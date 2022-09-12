@@ -1,0 +1,12 @@
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\01.PMS.Domain.deps.json
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\01.PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\ref\01.PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\01.PMS.Domain.pdb
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.csproj.AssemblyReference.cache
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.AssemblyInfoInputs.cache
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.AssemblyInfo.cs
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\ref\01.PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\01.PMS.Domain.pdb

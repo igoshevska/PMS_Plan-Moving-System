@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="row">
+        <div style="font-weight: bold; margin-top: 40px; color: black"> Logged user: {{user}}  Role: {{role}}</div>
+        <div class="col-sm-10">
+            <h1>Details for proposal {{proposalDetails.proposalNumber}}</h1>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-default" style="margin-left: 122px; margin-top: 32px;" ng-click="back()">Back</button>
+        </div>
+    </div>
+
+    <div class="row"  style="border-radius:5px; background-color:#999999; color:#1f1f1f; padding-left:10px; padding-top:10px; padding-bottom:10px">
+        <div class="col-sm-4">
+            <h2>Price Info:</h2>
+            <hr>
+            <div>Distance:      {{proposalDetails.priceProposal.distance}}</div>
+            <div>Living Area:   {{proposalDetails.priceProposal.livingArea}}</div>
+            <div>Attic Area:    {{proposalDetails.priceProposal.atticArea}}</div>
+            <div>Has Piano:     <input type="checkbox" ng-model="proposalDetails.priceProposal.hasPiano" disabled /></div>
+            <div>Address From:  {{proposalDetails.addressFrom}}</div>
+            <div>Address To:    {{proposalDetails.addressTo}}</div>
+            <h1>Price:          {{proposalDetails.priceProposal.price}}</h1>
+        </div>
+        <div class="col-sm-4">
+            <h2>User:</h2>
+            <hr>
+            <div>Name:     {{proposalDetails.user.name}}</div>
+            <div>Surname:  {{proposalDetails.user.surname}}</div>
+            <div>Email:    {{proposalDetails.user.email}}</div>
+        </div>
+        <div ng-if="proposalDetails.order != null" class="col-sm-4">
+            <h2>Order:</h2>
+            <hr>
+            <div>Serial Number:  {{proposalDetails.order.serialNumber}}</div>
+            <div>Number Of Cars:  {{proposalDetails.order.numberOfCars}}</div>
+        </div>
+    </div>
+</body>
+</html>

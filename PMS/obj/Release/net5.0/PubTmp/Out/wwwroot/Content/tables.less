@@ -1,0 +1,324 @@
+﻿@import url(Variables.less);
+@import url(theme.less);
+
+@tableHoverColor: #f7f7f7;
+@tableTdPdding: 8px 15px;
+@tableThPdding: 10px 15px;
+
+.table-responsive {
+    @media @phone {
+        border: 0px solid #ddd;
+    }
+}
+
+#mainContainer, .modal-body {
+    .ng-table th.sortable.sort-desc,
+    .ng-table th.sortable.sort-asc {
+        background-color: transparent;
+        text-shadow: none;
+    }
+
+    .tableHeaderWithButton {
+        min-height: 38px;
+        border-bottom: 2px solid @defaultThemeColor;
+        padding: 6px 0;
+
+        & > span {
+            line-height: 38px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 15px;
+        }
+    }
+
+    .table {
+        &.table-fixed {
+            width: auto;
+            table-layout: fixed;
+
+            td:not(.tableAction):not(.actionCell) {
+                min-width: 200px;
+            }
+        }
+
+        &.importantDates {
+            td .editableDateTime .input-group {
+                max-width: 170px;
+            }
+        }
+
+        &.editTable tbody tr td {
+            border-top: 0;
+            padding: 15px 15px !important;
+            vertical-align: middle !important;
+
+            &:first-child {
+                font-weight: 600;
+            }
+
+            &.noPaddingCell {
+                padding: 0 15px !important;
+            }
+
+            .removeInEditTable {
+                margin-right: 15px;
+
+                &:before {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        &.compliancesTable {
+            td {
+                border-top: 0;
+                white-space: nowrap;
+                width: 1%;
+                vertical-align: middle;
+            }
+
+            tr:last-child td {
+                border-bottom: 0;
+            }
+
+            tr td:first-child {
+                white-space: normal;
+                width: auto;
+
+                h4 {
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        tr.selectable {
+            cursor: pointer;
+        }
+
+        td.selectable {
+            cursor: pointer;
+        }
+
+        tbody tr:hover td {
+            background-color: @tableHoverColor;
+            /*border-top: 0 !important;
+            border-bottom: 1px solid #eeeeee !important;*/
+        }
+
+        th {
+            vertical-align: bottom;
+            border-bottom: 1px solid @defaultThemeColor;
+            font-weight: 600;
+            font-size: 14px;
+            padding: @tableThPdding;
+            text-align: left;
+            .noSelect;
+            min-width: 200px;
+
+            @media (max-width:1750px) {
+                min-width: unset;
+            }
+
+            &.sortable .sort-indicator {
+                padding-right: 0;
+            }
+
+            &.sortable .sort-indicator:hover:after {
+                border-width: 0 !important;
+                content: "\f3d7";
+                font-family: 'Ionicons';
+                font-size: 18px;
+                color: @defaultThemeColor;
+                line-height: 0.4;
+                visibility: visible;
+                opacity: 1;
+                .transition (opacity);
+            }
+
+            &.sortable .sort-indicator:hover:before {
+                border-width: 0 !important;
+                content: "\f3d4";
+                font-family: 'Ionicons';
+                font-size: 18px;
+                color: @defaultThemeColor;
+                line-height: 0;
+                visibility: visible;
+                opacity: 1;
+                .transition (opacity);
+            }
+
+            &.sortable .sort-indicator:before,
+            &.sortable .sort-indicator:after {
+                visibility: hidden;
+                .transition (opacity);
+                right: -13px;
+            }
+
+            &.sortable.sort-asc .sort-indicator:after {
+                visibility: visible;
+                border-width: 0 !important;
+                content: "\f3d7";
+                font-family: 'Ionicons';
+                font-size: 20px;
+                color: @defaultThemeColor;
+                opacity: 1;
+                line-height: 0.3;
+                .transition (opacity);
+            }
+
+            &.sortable.sort-desc .sort-indicator:after {
+                visibility: visible;
+                border-width: 0 !important;
+                content: "\f3d4";
+                font-family: 'Ionicons';
+                font-size: 20px;
+                color: @defaultThemeColor;
+                opacity: 1;
+                line-height: 0.3;
+                .transition (opacity);
+            }
+        }
+
+        th {
+            line-height: 1.2;
+            vertical-align: top;
+        }
+
+        td {
+            padding: @tableTdPdding;
+            border-bottom: 1px solid #eee;
+            line-height: 1.2;
+            vertical-align: middle;
+        }
+
+        td.actionCell {
+            span {
+                font-size: 20px;
+            }
+        }
+
+        th.rightAlign,
+        td.rightAlign {
+            text-align: right;
+        }
+
+        th.actionCell {
+            text-align: right;
+            padding: 10px 15px 0;
+            white-space: nowrap;
+        }
+
+        td.actionCell {
+            text-align: right;
+            padding: 0 15px;
+            white-space: nowrap;
+            padding-top: 3px;
+
+            span {
+                cursor: pointer;
+                margin-left: 5px;
+                vertical-align: middle;
+            }
+        }
+
+        th.iconCell {
+            width: 100px;
+            text-align: center;
+            padding: 10px 15px;
+        }
+
+        td.iconCell {
+            width: 100px;
+            text-align: center;
+            padding: 0 15px;
+            padding-top: 8px;
+        }
+
+        th.centerCell,
+        td.centerCell {
+            text-align: center;
+        }
+
+        th.restrictedCell {
+            width: 100px;
+        }
+
+        th.sortCell {
+            cursor: pointer;
+
+            .sortCell > * {
+                display: table-cell;
+            }
+
+            .sortArr {
+                position: relative;
+            }
+
+            .sortArr > * {
+                position: absolute;
+                left: -12px;
+                color: #d6d6d6;
+            }
+
+            .sortArr > span:first-child {
+                bottom: 0;
+            }
+
+            .sortArr > span:last-child {
+                top: -2px;
+            }
+
+            .revealCaret {
+                color: @defaultThemeColor !important;
+            }
+        }
+
+        td.logoCell {
+            padding: 0 15px;
+        }
+
+        th.restrictedOneCell,
+        td.restrictedOneCell {
+            width: 1%;
+            white-space: nowrap;
+        }
+
+        td.restrictedOneCellMinWidth {
+            min-width: 1%;
+            /*white-space: nowrap;*/
+        }
+
+        td.noPaddingCell {
+            padding: 0 15px;
+            padding-top: 8px;
+
+
+            .calendar {
+                tr:hover td {
+                    background: transparent;
+                }
+
+                td {
+                    padding: 0 !important;
+                    background: transparent !important;
+                }
+
+                th {
+                    padding: 0 !important;
+                    text-align: center;
+                }
+            }
+        }
+
+        td.progressBar {
+            /*vertical-align: middle !important;*/
+            padding-top: 15px;
+
+            .percent {
+                top: 6px;
+                transform: translateY(0);
+            }
+        }
+    }
+}

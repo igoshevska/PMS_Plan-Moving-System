@@ -1,0 +1,12 @@
+﻿@{ 
+    var apiUrl = ViewBag.apiUrl;
+    var uiUrl = ViewBag.uiUrl;
+
+}
+<script>
+    var apiUrl = '@apiUrl';
+    var uiUrl = '@uiUrl';
+</script>
+<div ng-app="accountModule" ng-controller="accountController">
+    <div ui-view></div>
+</div>

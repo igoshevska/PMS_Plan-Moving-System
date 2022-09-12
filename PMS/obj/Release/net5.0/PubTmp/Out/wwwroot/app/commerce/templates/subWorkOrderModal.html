@@ -1,0 +1,75 @@
+﻿<style>
+    .form-control {
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="modal-header" id="modal-header">
+    <h3 class="modal-title">{{subWorkOrderModalTitle}}</h3>
+</div>
+<form name="form" novalidate">
+    <div class="modal-body">
+        <div class="row brb">
+            <div class="col-xs-12" style="padding-left:100px; padding-right:100px; padding-top: 30px; padding-bottom:30px">
+                <!--SubWork order name-->
+                <div class="row">
+                    <span style="float: left; margin-bottom: 5px; margin-top:5px">Име на производ</span>
+                    <div ng-show="form.$submitted || form.subWorkOrderName.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.subWorkOrderName.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.subWorkOrderName.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <input class="form-control" type="text" name="subWorkOrderName" ng-model="model.name" placeholder="Внесете име на под-налог" required />
+                </div>
+                <!--Quantity-->
+                <div class="row">
+                    <span style="float: left; margin-bottom: 5px; margin-top:5px">Количина </span>
+                    <div ng-show="form.$submitted || form.quantity.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.quantity.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.quantity.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <input class="form-control" type="number" min="1" oninput="validity.valid||(value='');" name="quantity" ng-model="model.quantity" placeholder="Внесете количина" required />
+                </div>
+                <!--Date-->
+                <div class="row">
+                    <span style="margin-bottom: 5px; margin-top:5px">Датум</span>
+                    <div ng-if="form.$submitted || form.date.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.date.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.date.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="input-group">
+                        <input name="date" type="text" class="form-control" uib-datepicker-popup="{{dateFormat}}" ng-model="model.date" is-open="popup1.opened"
+                               datepicker-options="{formatYear: 'yyyy',minDate: today, startingDay: 1}" ng-required="true" current-text="Денес" clear-text="Избриши" close-text="Затвори" alt-input-formats="altInputFormats"
+                               style="margin-bottom:5px; margin-top: 5px" datepicker-popup-template-url="/app/shared/datePickerPopUp.html" placeholder="формат (дд.мм.гггг)" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <!--Note-->
+                <div class="row">
+                    <span style="float: left; margin-bottom: 5px; margin-top:5px">Забелешка</span>
+                    <div ng-show="form.$submitted || form.note.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.note.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.note.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <input class="form-control" type="text" name="note" ng-model="model.note" placeholder="Внесете забелешка"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" id="modal-footer">
+        <span class="pull-right">
+            <button class="btn btn-danger btn-lg" ng-click="cancel()">Откажи</button>
+            <button class="btn btn-info btn-lg" ng-click="createSubWorkOrder()" ng-disabled="form.$invalid">{{subWorkOrderModalSubmitButton}}</button>
+        </span>
+    </div>
+</form>

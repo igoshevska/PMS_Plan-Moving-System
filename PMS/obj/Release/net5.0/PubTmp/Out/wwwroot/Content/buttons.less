@@ -1,0 +1,152 @@
+﻿@import url(Variables.less);
+@import url(theme.less);
+
+@btn-default-color: #fff;
+@btn-default-bcg: #0091b3;
+@btn-transparent-bg: transparent;
+
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+    outline: 0px;
+    outline-offset: 0px;
+}
+
+.btn:active, .btn.active {
+    box-shadow: none;
+    border: 1px solid;
+}
+
+.button(@color, @background, @txtAlign: center) {
+    background: @background;
+    color: @color;
+    border-color: @background;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: @txtAlign;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    min-width: 40px;
+    .transition;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background: darken(@background, 10%);
+        border-color: darken(@background, 10%);
+        color: @color;
+        .transition;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: fade(@background, 30%);
+            border-color: darken(@background, 10%);
+        }
+    }
+}
+
+.borderedButton(@color, @background, @border: #dbdee4, @marginLeft: 0, @txtAlign: left) {
+    background: @background;
+    color: @color;
+    border-color: @border;
+    margin-left: @marginLeft;
+    text-align: @txtAlign;
+    border-radius: 2px;
+    font-size: 14px;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    .transition;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background: darken(@background, 10%);
+        border-color: darken(@border, 10%);
+        color: @color;
+        .transition;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: lighten(@background, 30%);
+            border-color: lighten(@border, 30%);
+        }
+    }
+}
+
+.selectableButton(@color, @background, @hoverBcg: @defaultThemeColor, @borderRadius: 2px) {
+    background: @background;
+    color: @color;
+    border-color: darken(@background, 10%);
+    border-radius: @borderRadius;
+    font-size: 14px;
+    text-shadow: none !important;
+    box-shadow: none !important;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background: @hoverBcg;
+        border-color: darken(@hoverBcg, 5%);
+        color: @color;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: lighten(@background, 30%);
+            border-color: lighten(@background, 20%);
+        }
+    }
+}
+
+.btn-default {
+    .button(@btn-default-color, @defaultThemeColor);
+}
+
+.btn-back {
+    .button(@btn-default-color, #bbb);
+}
+
+.btn-grey {
+    .button(#555, #f3f4f2);
+}
+
+.btn-transparent {
+    .button(#333, @btn-transparent-bg);
+}
+
+.btn-editor {
+    .button(#333, @btn-transparent-bg);
+}
+
+.btn-bordered-transparent {
+    .borderedButton(#333, @btn-transparent-bg, #dbdee4, 15px);
+}
+
+.btn-selctable {
+    .selectableButton (@btn-default-color, #bbb)
+}
+
+.btn-calendar {
+    .selectableButton (#555, #edf0f5, #e3e6ec, 0)
+}

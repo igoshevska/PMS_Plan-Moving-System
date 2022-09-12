@@ -1,0 +1,72 @@
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.deps.json
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfoInputs.cache
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfo.cs
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\PMS\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.AssemblyReference.cache
+C:\Projects\MoveIT\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.deps.json
+C:\Projects\MoveIT\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\MoveIT\PMS\PMS.Domain\bin\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\MoveIT\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfoInputs.cache
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfo.cs
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.dll
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\MoveIT\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.AssemblyReference.cache
+C:\Projects\test\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.deps.json
+C:\Projects\test\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\test\PMS\PMS.Domain\bin\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\test\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.AssemblyReference.cache
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfoInputs.cache
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfo.cs
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.dll
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\test\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.deps.json
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\bin\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.AssemblyReference.cache
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfoInputs.cache
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfo.cs
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.deps.json
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.AssemblyReference.cache
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfoInputs.cache
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfo.cs
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.deps.json
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.AssemblyReference.cache
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfoInputs.cache
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.AssemblyInfo.cs
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\refint\PMS.Domain.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\PMS.Domain.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\ref\PMS.Domain.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Domain\obj\Debug\net5.0\refint\PMS.Domain.dll

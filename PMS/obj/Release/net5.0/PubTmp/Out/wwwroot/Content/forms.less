@@ -1,0 +1,62 @@
+﻿@import url(Variables.less);
+@import url(theme.less);
+
+@border-color: #dbdee4;
+@border-radius: 2px;
+
+label {
+    display: inline-block;
+    max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+
+.form-control {
+    border-radius: @border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+    border-color: @border-color;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.AddEditDetails-view {
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] {
+        cursor: auto;
+        border-color: transparent;
+        background-color: #fff;
+        opacity: 1;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding: 6px 0px;
+        border-bottom-color: @border-color;
+        font-weight: 600;
+    }
+
+    input[type="checkbox"]:disabled {
+        cursor: default;
+    }
+
+    textarea[disabled] {
+        resize: none;
+    }
+
+    .form-control:disabled::-webkit-input-placeholder, .fieldset:disabled::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    .form-control:disabled:-moz-placeholder, .fieldset:disabled::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    .form-control:disabled::-moz-placeholder, .fieldset:disabled::-moz-placeholder {
+        color: transparent;
+    }
+
+    .form-control:disabled:-ms-input-placeholder, .fieldset:disabled:-ms-input-placeholder {
+        color: transparent;
+    }
+}

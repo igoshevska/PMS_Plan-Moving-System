@@ -1,0 +1,122 @@
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.deps.json
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.dll
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.pdb
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.dll
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.dll
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.pdb
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.pdb
+C:\Projects\PMS\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.AssemblyReference.cache
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfoInputs.cache
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfo.cs
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CoreCompileInputs.cache
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CopyComplete
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.dll
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\PMS\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.pdb
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.deps.json
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.dll
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.pdb
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.dll
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.dll
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.pdb
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.pdb
+C:\Projects\MoveIT\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.AssemblyReference.cache
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfoInputs.cache
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfo.cs
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CoreCompileInputs.cache
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CopyComplete
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.dll
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\MoveIT\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.pdb
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.deps.json
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.dll
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.pdb
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.dll
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.dll
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.dll
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.pdb
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.pdb
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.pdb
+C:\Projects\test\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.AssemblyReference.cache
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfoInputs.cache
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfo.cs
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CoreCompileInputs.cache
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CopyComplete
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.dll
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\test\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.deps.json
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.AssemblyReference.cache
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfoInputs.cache
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfo.cs
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CoreCompileInputs.cache
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CopyComplete
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\223001_MoveIt\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.deps.json
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.AssemblyReference.cache
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfoInputs.cache
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfo.cs
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CoreCompileInputs.cache
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CopyComplete
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.deps.json
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Services.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Configuration.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Data.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.ViewModels.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\bin\Debug\net5.0\PMS.Domain.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.AssemblyReference.cache
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfoInputs.cache
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.AssemblyInfo.cs
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CoreCompileInputs.cache
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.csproj.CopyComplete
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\refint\PMS.Services.dll
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\PMS.Services.pdb
+C:\Users\ivana.goshevska\Downloads\PMS_Plan Moving System\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\ref\PMS.Services.dll
+C:\Projects\PMS_Plan Moving System\PMS\PMS.Services\obj\Debug\net5.0\refint\PMS.Services.dll

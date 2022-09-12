@@ -1,0 +1,56 @@
+﻿
+<div>
+    <div style="font-weight: bold; margin-top: 40px; color: black"> Logged user: {{user.name}}  {{user.surname}}   Role: {{user.role.name}}</div>
+</div>
+<div>
+    <button type="button" ng-if="user.role.id == 1" class="btn btn-default" ng-click="calculatePriceProposal()">Get Proposal Price</button>
+    <hr>
+</div>
+<div>
+    <span>
+        <input ng-model="searchText" type="text" />
+        <button ng-show="searchText !==''" ng-click="DeleteSerachText()">Clear filter</button>
+    </span>
+    <span>
+        <button ng-click="getAllProposalsAndOrdersByUserNameFiltered()">Filter</button>
+    </span>
+    <hr />
+</div>
+<div>
+    <table ng-table="userDataTable" class="table table-striped">
+        <thead>
+            <tr>
+                <td> Proposal number</td>
+                <td> Distance</td>
+                <td> Living Area</td>
+                <td> Attic Area</td>
+                <td> Proposed By</td>
+                <td> Price</td>
+                <td> Piano</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in allProposals">
+                <td>{{p.proposalNumber}}</td>
+                <td>{{p.priceProposal.distance}}</td>
+                <td>{{p.priceProposal.livingArea}}</td>
+                <td>{{p.priceProposal.atticArea}}</td>
+                <td>{{p.user.userName}}</td>
+                <td>{{p.priceProposal.price}}</td>
+                <td>
+                    <input type="checkbox" ng-model="p.priceProposal.hasPiano" disabled />
+                </td>
+                <td>
+                    <button class="btn btn-default" ng-if="p.order == null && user.role.id == 1" aria-hidden="true" style="cursor:pointer;" title="Order" ng-click="createOrder(p.id)">Order now</button>
+                    <button class="btn btn-default" ng-if="p.order != null" aria-hidden="true" style="cursor:pointer;" title="Order" disabled>Ordered</button>
+                </td>
+                <td>
+                    <button class="btn btn-default" aria-hidden="true" style="cursor:pointer;" title="details" ng-click="openProposalDetails(p.id)">Details</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div ng-show="totalRows == 0">
+        No proposals or orders found...
+    </div>
+</div>

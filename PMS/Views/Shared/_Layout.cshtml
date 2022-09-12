@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoveIT</title>
+    <base href="/">
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Angular Table -->
+    <link href="~/Content/ng-table.min.css" rel="stylesheet" />
+
+    <!-- jQuery UI -->
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body ng-app="appModule" ng-controller="appController">
+
+    <div class="col-sm=12">
+        <header style="background-color:#1f1f1f">
+            <nav style="height:70px">
+                <div class="container">
+                    <div style="width: 600px">
+                        <p class="navbar-brand" style="color: #999999; margin-left:-225px; margin-top:10px; font-size: 50px; font-weight: bold">MoveIT</p>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- #region Provider Scripts -->
+    <!-- jQuery 1.9.1 -->
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+    <!-- AngularJS -->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.min.js"></script>
+    <script src="~/Scripts/ngStorage.min.js"></script>
+    <script src="~/Scripts/angular-ui-router.js"></script>
+
+    <!-- Angular UI - Bootsrap UI -->
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+
+    <!-- Angular Table -->
+    <script src="~/Scripts/ng-table.min.js"></script>
+
+    <!-- #endregion -->
+
+    <!-- Modules -->
+    <script src="~/app/app.module.js"></script>
+
+    <!-- Controllers -->
+    <script src="~/app/app.controller.js"></script>
+
+    <!-- Services -->
+    <script src="~/app/app.service.js"></script>
+    <script src="~/app/shared/repository.js"></script>
+
+    <!-- pms models angular shared-->
+    <script src="~/app/shared/pms.model.js"></script>
+
+    <!-- #endregion -->
+    <script src="~/app/home/home.module.js"></script>
+    <script src="~/app/home/home.service.js"></script>
+    <script src="~/app/home/controllers/home.controller.js"></script>
+    <script src="~/app/home/controllers/priceProposalModal.controller.js"></script>
+    <script src="~/app/home/controllers/priceProposalDetails.controller.js"></script>
+    <script src="~/app/account/account.module.js"></script>
+    <script src="~/app/account/account.service.js"></script>
+    <script src="~/app/account/controllers/account.controller.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

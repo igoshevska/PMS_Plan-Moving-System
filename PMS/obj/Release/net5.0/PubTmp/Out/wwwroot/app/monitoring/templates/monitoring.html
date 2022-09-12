@@ -1,0 +1,89 @@
+﻿<style>
+    /*buttons*/
+    .button-custom {
+        font-size: 16px;
+        font-weight: bold;
+        color: #1f1f1f;
+        background: #00ffff;
+        border-radius: 5px;
+        border: 0px;
+        width: 103px;
+    }
+
+        .button-custom:hover {
+            color: white;
+            background: #00dddd;
+        }
+
+        .button-custom:focus {
+            outline: none;
+        }
+
+    /*containers*/
+    .shift-container {
+        background-color: #999999;
+        color: #1f1f1f;
+        font-size: medium;
+    }
+
+    .square {
+        float: left;
+        border-radius: 25px;
+        position: relative;
+        width: 30%;
+        padding-bottom: 25%; /* = width for a 1:1 aspect ratio */
+        margin: 1.66%;
+        background-color: #767d89;
+        overflow: hidden;
+    }
+
+    .content {
+        position: absolute;
+        height: 90%; /* = 100% - 2*5% padding */
+        width: 90%; /* = 100% - 2*5% padding */
+        padding: 5%;
+    }
+
+    .table {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+
+    .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+    }
+</style>
+<div ng-repeat="m in machines">
+    <div class="square">
+        <div class="content">
+            <div class="table">
+                <div class="table-cell">
+                    <p style="height: 45px; color: #000000; font-size: 25px; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #1f1f1f; ">{{m.name}}</p>
+                    <div class="row" ng-if="m.efficiency > 50">
+                        <p style="margin: 20px; display: inline; float: left">Ефикасност:</p>
+                        <p style="font-size: 40px; color: #a7f2e1; font-weight: bold; margin: 0; display: inline; float: right "> {{m.efficiency}} %</p>
+                    </div>
+                    <div class="row" ng-if="m.efficiency < 50 && m.stateId !=0">
+                        <p style="margin: 20px; display: inline; float: left">Ефикасност:</p>
+                        <p style="font-size: 40px; color: #ff0000; font-weight: bold; margin: 0; display: inline; float: right "> {{m.efficiency}} %</p>
+                    </div>
+                    <div class="row" ng-if="m.stateId == 0">
+                        <p style="margin: 20px; display: inline; float: left">Ефикасност:</p>
+                        <p style="font-size: 40px; color: #d1d2d3; font-weight: bold; margin: 0; display: inline; float: right "> NaN </p>
+                    </div>
+                    <p ng-if="m.stateId == 6" style="height: 45px; padding-top: 5px; background: #ffd95a; color: #000000; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; border-radius: 6px" ; text-transform: uppercase>{{m.status}}</p>
+                    <p ng-if="m.stateId == 6" style="height: 45px; padding-top: 5px; background: #000000; color: #ffd95a; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; text-transform: uppercase; border-radius: 6px "><span><i class="fa fa-caret-right fa-2x" aria-hidden="true" style="height:10px; width:20px"></i>{{m.state}}<i class="fa fa-caret-left fa-2x" aria-hidden="true" style="height:10px; width:20px"></i></span></p>
+                    <p ng-if="m.stateId == 4" style="height: 45px; padding-top: 5px; background: #a7f2e1; color: #000000; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; border-radius: 6px" ; text-transform: uppercase>{{m.status}}</p>
+                    <p ng-if="m.stateId == 4" style="height: 45px; padding-top: 5px; background: #000000; color: #a7f2e1; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; text-transform: uppercase; border-radius: 6px"><span><i class="fa fa-caret-right fa-2x" aria-hidden="true" style="height:10px; width:20px"></i>{{m.state}}<i class="fa fa-caret-left fa-2x" aria-hidden="true" style="height:10px; width:20px"></i></span></p>
+                    <p ng-if="m.stateId == 5" style="height: 45px; padding-top: 5px; background: #ff0000; color: #000000; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; border-radius: 6px" ; text-transform: uppercase>{{m.status}}</p>
+                    <p ng-if="m.stateId == 5" style="height: 45px; padding-top: 5px; background: #000000; color: #ff0000; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; text-transform: uppercase; border-radius: 6px"><span><i class="fa fa-caret-right fa-2x" aria-hidden="true" style="height:10px; width:20px"></i>{{m.state}}<i class="fa fa-caret-left fa-2x" aria-hidden="true" style="height:10px; width:20px"></i></span></p>
+                    <p ng-if="m.stateId == 0" style="height: 45px; padding-top: 5px; background: #d1d2d3; color: #000000; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; border-radius: 6px" ; text-transform: uppercase>/</p>
+                    <p ng-if="m.stateId == 0" style="height: 45px; padding-top: 5px; background: #000000; color: #d1d2d3; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; text-transform: uppercase; border-radius: 6px"><span><i class="fa fa-caret-right fa-2x" aria-hidden="true" style="height:10px; width:20px"></i>/<i class="fa fa-caret-left fa-2x" aria-hidden="true" style="height:10px; width:20px"></i></span></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SearchModels\**" />
+    <Compile Remove="ViewModels\**" />
+    <EmbeddedResource Remove="SearchModels\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="SearchModels\**" />
+    <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PMS.Configuration\PMS.Configuration.csproj" />
+    <ProjectReference Include="..\PMS.Data\PMS.Data.csproj" />
+    <ProjectReference Include="..\PMS.ViewModels\PMS.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

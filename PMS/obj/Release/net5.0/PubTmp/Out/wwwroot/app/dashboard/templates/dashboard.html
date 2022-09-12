@@ -1,0 +1,189 @@
+﻿<style>
+    .text-style {
+        color: #cbcbcb;
+        font-size: 16px;
+    }
+
+    .text-style-lg {
+        color: #cbcbcb;
+        font-size: 20px;
+    }
+
+    .theme-color-text {
+        color: #00ffff;
+    }
+
+    .theme-color-background {
+        background: #00ffff;
+    }
+
+    .border-style {
+        border: 1px solid #cbcbcb;
+    }
+
+    .btn-style {
+        border-radius: 5px;
+        color: #1f1f1f;
+        font-size: large;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    .stop-btn-background {
+        background: #ff3456;
+    }
+
+    .report-btn-background {
+        background: #bfacfe;
+    }
+</style>
+
+<div class="container" style="color:white; border:3px solid white">
+    <div class="row">
+        <div class="col-sm-3">
+            <div style="padding:10px">
+                <div class="row border-style theme-color-text" style="height: 40px; margin-top:5px; padding-bottom: -20px">
+                    <p style="font-size:25px; text-align:center">EUROMAC</p>
+                </div>
+                <div class="row border-style" style="height: 40px; margin-top:5px">
+                    <div class="col-sm-8 text-style" style="padding-top:5px; padding-bottom:-5px">
+                        <p>Број на налог:</p>
+                    </div>
+                    <div class="col-sm-4 theme-color-text" style="padding-top:5px; padding-bottom:-5px; margin-left:-20px">
+                        <p style="font-size:17px; font-weight:bold">12618</p>
+                    </div>
+                </div>
+                <div class="row border-style" style="height: 40px;margin-top: 5px">
+                    <div class="col-sm-8 text-style" style="padding-top:5px; padding-bottom:-5px">
+                        <p>Број на машина:</p>
+                    </div>
+                    <div class="col-sm-4 theme-color-text" style="padding-top:5px; padding-bottom:-5px; margin-left:-20px">
+                        <p style="font-size:17px; font-weight:bold">19185</p>
+                    </div>
+                </div>
+                <div class="row border-style" style="height: 40px; margin-top:5px">
+                    <div class="col-sm-8 text-style" style="padding-top:5px; padding-bottom:-5px">
+                        <p>Почеток на работа:</p>
+                    </div>
+                    <div class="col-sm-4 theme-color-text" style="padding-top:5px; padding-bottom:-5px; margin-left:-20px">
+                        <p style="font-size:17px; font-weight:bold">06:30:55</p>
+                    </div>
+                </div>
+                <div class="row border-style" style="height: 40px; margin-top: 5px">
+                    <div class="col-sm-8 text-style" style="padding-top:5px; padding-bottom:-5px">
+                        <p>Најавен:</p>
+                    </div>
+                    <div class="col-sm-4 theme-color-text" style="padding-top:5px; padding-bottom:-5px; margin-left:-20px">
+                        <p style="font-size:17px; font-weight:bold">Работник</p>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <button class="btn btn-lg theme-color-background btn-style">Одбери налог</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-lg  theme-color-background btn-style" style="margin-top:10px">Креирај табла</button>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <button class="btn btn-lg stop-btn-background btn-style">Стоп</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-lg report-btn-background btn-style" style="margin-top:10px">Пријави дефект</button>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top:15px">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div style="height:300px; margin-top:-50px; margin-bottom:50px">
+                        <nvd3 options="options1" data="data1"></nvd3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 text-style-lg">
+                        <p style="float:right; padding-right:-10px">Ефикасност</p>
+                    </div>
+                    <div class="col-sm-6 theme-color-text">
+                        <p style="float:left; font-size: 20px; font-weight:bold">68%</p>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-sm-7 border-style">
+                        <p class="text-style-lg">Последна причина за застој</p>
+                        <p class="theme-color-text" style="font-size:20px; font-weight:bold; margin-top:-10px">Пауза за ручек</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4 border-style">
+                        <p class="text-style-lg">Последен застој</p>
+                        <p class="theme-color-text" style="font-size:20px; font-weight:bold; margin-top:-10px">00:05:15</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-3" style="padding-left:25px; padding-right:25px">
+                <div class="row border-style" style="margin-bottom:10px">
+                    <div class="col-sm-6">
+                        <div style="height:200px; margin-top:-150px ">
+                            <nvd3 options="options2" data="data2"></nvd3>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div style="padding-top:10px; padding-bottom:10px">
+                            <p class="text-style" style="text-align:center">Ефикасност на смена</p>
+                            <p class="theme-color-text" style="text-align:center; font-size:25px; font-weight:bold">68%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-style" style="margin-bottom:10px">
+                    <div class="col-sm-12">
+                        <div style="padding:10px">
+                            <p class="text-style" style="text-align:center; margin-bottom:5px">Shift job loaded time</p>
+                            <p class="theme-color-text" style="text-align:center; font-size:25px; font-weight:bold; margin-top:-5px; margin-bottom:-5px">02:07:02</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-style" style="margin-bottom:10px">
+                    <div class="col-sm-12">
+                        <div style="padding:10px">
+                            <p class="text-style" style="text-align:center; margin-bottom:5px">Shift Stop Duration</p>
+                            <p style="color: #ff3456; text-align:center; font-size:25px; font-weight:bold; margin-top:-5px; margin-bottom:-5px">02:07:02</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-style">
+                    <div class="col-sm-12">
+                        <div style="padding:10px">
+                            <p class="text-style" style="text-align:center">Machine state:</p>
+                            <p style="height: 45px; padding-top:5px; background:#1f1f1f; color:#999999; font-size:25px; font-weight:bold; text-align:center; border: 1px solid #999999; border-radius:5px">STANDBY</p>
+                            <p style="height: 45px; padding-top:5px; background: #1f1f1f; color: #00ffff; font-size: 25px; font-weight: bold; text-align: center; border: 1px solid #999999; border-radius: 5px"><span><i class="fa fa-caret-right fa-2x" aria-hidden="true" style="height:10px; width:20px"></i>PRODUCTION<i class="fa fa-caret-left fa-2x" aria-hidden="true" style="height:10px; width:20px"></i></span></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row" style="background:#1dee21">
+        Timemap
+    </div>
+    <br />
+
+    <div class="row" style="background:#1dee21">
+        Timestamps
+    </div>
+
+
+
+
+
+
+
+</div>

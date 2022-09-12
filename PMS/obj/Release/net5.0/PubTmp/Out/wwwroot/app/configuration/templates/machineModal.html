@@ -1,0 +1,104 @@
+﻿<style>
+    .form-control {
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    #ipValid {
+        color: green;
+        font-size: 12px;
+        float: right;
+        opacity: 0.75
+    }
+    #ipInvalid {
+        color: red;
+        font-size: 12px;
+        float: right;
+        opacity: 0.75
+    }
+</style>
+
+<div class="modal-header" id="machine-modal-header" background-color: blue>
+    <h3 class="modal-title">{{machineModalTitle}}</h3>
+</div>
+<form name="form" novalidate">
+    <div class="modal-body">
+        <div class="row brb">
+            <div class="col-xs-12" style="padding-left:100px; padding-right:100px; padding-top: 30px; padding-bottom:30px">
+                <!--Machine name-->
+                <div class="row">
+                    <span style="float: left; margin-bottom: 5px; margin-top:5px">Име </span>
+                    <div ng-show="form.$submitted || form.machineName.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.machineName.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.machineName.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <input class="form-control" type="text" name="machineName" ng-model="model.name" placeholder="Внесете име на машина" required />
+                </div>
+                <!--Location-->         <!-- dali treba so ui-select? -->
+                <div class="row">
+                    <span style="margin-bottom: 5px; margin-top:5px">Локација </span>
+                    <div ng-if="form.$submitted || form.selectLocation.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.selectLocation.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.selectLocation.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div>
+                    <ui-select ng-model="model.location" name="selectLocation" style="margin-left:-15px; margin-bottom:5px; margin-top: 5px" required>
+                        <ui-select-match placeholder="Изберете локација...">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="location in (locations | filter: $select.search) track by location.id">
+                            <span ng-bind="location.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <!--machineIP-->
+                <div class="row">
+                    <span style="float: left; margin-bottom: 5px; margin-top:5px">IP машина</span>
+                    <div ng-show="form.$submitted || form.machineIp.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.machineIp.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.machineIp.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <input ng-ip-address class="form-control" type="text" name="machineIp" ng-model="model.machineIpAddress" placeholder="Внесете IP адреса на машина" required />
+                    <div class="col-xs-3" style="margin-top:-25px; float:right">
+                        <div id="ipInvalid" ng-if="form.machineIp.$dirty && form.machineIp.$invalid">невалидна</div>
+                        <div id="ipValid" ng-if="form.machineIp.$dirty && form.machineIp.$valid">валидна</div>
+                    </div>
+                </div>
+                <!--tabletIP-->
+                <div class="row">
+                    <span style="float: left; margin-bottom: 5px; margin-top:5px">IP таблет</span>
+                    <div ng-show="form.$submitted || form.tabletIp.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                        <span ng-show="form.tabletIp.$error.required" class="glyphicon glyphicon-info-sign" style="color:red"></span>
+                        <span ng-show="form.tabletIp.$error.required" style="color: red; font-size:12px">Полето е задолжително</span>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <input ng-ip-address class="form-control" type="text" name="tabletIp" ng-model="model.tabletIpAddress" placeholder="Внесете IP адреса на таблет" required />
+                    <div class="col-xs-3" style="margin-top:-25px; float:right">
+                        <div id="ipInvalid" ng-if="form.tabletIp.$dirty && form.tabletIp.$invalid">невалидна</div>
+                        <div id="ipValid" ng-if="form.tabletIp.$dirty && form.tabletIp.$valid">валидна</div>
+                    </div>
+                </div>
+                <!--Is active-->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <input type="checkbox" name="machineIsActive" ng-model="model.isActive" style="margin-left:-15px; margin-bottom: 5px;  margin-top:5px; width:20px; height:20px" />
+                    </div>
+                    <div class="col-sm-3" style="margin-top:5px">
+                        <span style="margin-left:-15px">Активна </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" id="machine-modal-footer">
+        <span class="pull-right">
+            <button class="btn btn-danger btn-lg" ng-click="cancel()">Откажи</button>
+            <button class="btn btn-info btn-lg" ng-click="createMachine()" ng-disabled="form.$invalid">{{machineModalSubmitButton}}</button>
+        </span>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+C:\Projects\PMS\PMS\PMS.Data\bin\Debug\net5.0\02.PMS.Data.deps.json
+C:\Projects\PMS\PMS\PMS.Data\bin\Debug\net5.0\02.PMS.Data.dll
+C:\Projects\PMS\PMS\PMS.Data\bin\Debug\net5.0\ref\02.PMS.Data.dll
+C:\Projects\PMS\PMS\PMS.Data\bin\Debug\net5.0\02.PMS.Data.pdb
+C:\Projects\PMS\PMS\PMS.Data\bin\Debug\net5.0\01.PMS.Domain.dll
+C:\Projects\PMS\PMS\PMS.Data\bin\Debug\net5.0\01.PMS.Domain.pdb
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.csproj.AssemblyReference.cache
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.AssemblyInfoInputs.cache
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.AssemblyInfo.cs
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.csproj.CoreCompileInputs.cache
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.csproj.CopyComplete
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.dll
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\ref\02.PMS.Data.dll
+C:\Projects\PMS\PMS\PMS.Data\obj\Debug\net5.0\02.PMS.Data.pdb
