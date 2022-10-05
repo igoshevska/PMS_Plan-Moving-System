@@ -28,8 +28,22 @@ angular.module('appModule').factory("pmsModels",
                 this.page = 0;
                 this.rows = 0;
                 this.searchText = '';
-            }
+            };
 
+            //RegisterUser
+            model.RegisterViewModel = function () {
+                this.name = '';
+                this.surname = '';
+                this.email = '';
+                this.password = '';
+                this.confirmPassword = '';
+                this.userName = '';
+            };
+
+            //AccessToken
+            model.AccessTokenViewModel = function () {
+                this.accessToken = '';
+            };
 
             return model;
 

@@ -21,11 +21,32 @@
                         });
                 }
 
+                $scope.registeringUser = function () {
+                    var modalInstance = $uibModal.open({
+                        animation: false,
+                        scope: $scope,
+                        backdrop: 'static',
+                        templateUrl: "/app/account/templates/registerUserModal.html",
+                        controller: 'registerUserModalController',
+                        windowClass: 'modal custom-modal-width',
+                        size: 'md',
+                    });
+                    modalInstance.result.then(function (result) {
+                        if (result == "Success") {
+                            $scope.message = "The registration was successful, now you can login";
+                        }
+                    });
+                }
+
                 sessionStorage.setItem('apiUrl', apiUrl);
                 sessionStorage.setItem('uiUrl', uiUrl);
 
                 $scope.openPriceProposal = function (uiUrl) {
                     location.replace(uiUrl+'/Home')
+                };
+
+                $scope.openLoginPage = function (uiUrl) {
+                    location.replace(uiUrl + '/Account')
                 };
      
             }]);

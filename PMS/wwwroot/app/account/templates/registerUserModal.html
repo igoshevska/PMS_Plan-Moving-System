@@ -1,0 +1,146 @@
+﻿<style>
+</style>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="modal-header">
+        <h3 class="modal-title">Register</h3>
+    </div>
+    <form name="form" novalidate">
+        <div class="modal-body">
+            <div class="row brb">
+                <div class="col-xs-12" style="padding-left:100px; padding-right:100px; padding-top: 30px; padding-bottom:30px">
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Name</span>
+                        <div ng-show="form.$submitted || form.distance.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.distance.$error.required" style="color:red"></span>
+                            <span ng-show="form.distance.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="text" ng-model="registerModel.name" placeholder="Name" required />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Surname </span>
+                        <div ng-show="form.$submitted || form.livingArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.livingArea.$error.required" style="color:red"></span>
+                            <span ng-show="form.livingArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="text" ng-model="registerModel.surname" placeholder="Surname" required />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Email </span>
+                        <div ng-show="form.$submitted || form.atticArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.userLastName.$error.required" style="color:red"></span>
+                            <span ng-show="form.atticArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="text" ng-model="registerModel.email" placeholder="Email" />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">UserName </span>
+                        <div ng-show="form.$submitted || form.atticArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.userLastName.$error.required" style="color:red"></span>
+                            <span ng-show="form.atticArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="text" ng-model="registerModel.userName" placeholder="UserName" />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Password </span>
+                        <div ng-show="form.$submitted || form.atticArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.userLastName.$error.required" style="color:red"></span>
+                            <span ng-show="form.atticArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <input class="form-control" type="password" id="showPassword" ng-model="registerModel.password" placeholder="Password" />
+                        <input type="checkbox" ng-click="showPassword()" />
+                    </div>
+                    <div class="row">
+                        <span style="float: left; margin-bottom: 5px; margin-top:5px">Confirm Password </span>
+                        <div ng-show="form.$submitted || form.atticArea.$touched" style="float:right; margin-bottom:5px; margin-top: 5px">
+                            <span class="glyphicon glyphicon-info-sign" ng-show="form.userLastName.$error.required" style="color:red"></span>
+                            <span ng-show="form.atticArea.$error.required" style="color: red; font-size:12px">Reqired field</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:10px">
+                        <div class="col-10">
+                            <input class="form-control" type="password" id="showConfirmPassword" ng-model="registerModel.confirmPassword" placeholder="Confirm Password" />
+                        </div>
+                        <div class="col">
+                            <input type="checkbox" ng-click="showConfirmPassword()" />
+                        </div>
+
+                    </div>
+                    <div>{{message}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <span class="pull-right">
+                <button class="btn btn-danger btn-lg" ng-click="cancel()">Cancel</button>
+                <button style="color:aquamarine" ng-click="registeringUser()" ng-disabled="form.$invalid">Rgister</button>
+            </span>
+        </div>
+    </form>
+
+    <hr />
+    <div class="col-12">
+        <line>or</line>
+    </div>
+
+    <!--<button class="btn btn-danger btn-lg"  scope="public_profile,email" ng-click="checkLoginState()">Test</button>-->
+    <button style="color:#5b7bd5"  scope="public_profile,email" ng-click="onFBLogin()">F Log In</button>
+
+    <!--<fb:login-button scope="public_profile,email"
+                     onlogin="checkLoginState();">
+    </fb:login-button>-->
+
+
+    <div id="authstatus"></div>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '462949909081376',
+                cookie: true,
+                xfbml: true,
+                version: 'v5.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                $("#authstatus").html("<code>" + JSON.stringify(response, null, 2) + "</code>");
+            })
+        }
+
+
+    </script>
+</body>
+</html>
+
+

@@ -29,6 +29,8 @@ namespace MoveIT
                 }).ConfigureLogging(builder =>
                 {
                     builder.SetMinimumLevel(LogLevel.Error);
+                    builder.Services.AddHttpClient();
+
                     builder.AddLog4Net("log4net.config");
                 });
     }

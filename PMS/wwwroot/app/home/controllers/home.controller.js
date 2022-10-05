@@ -1,10 +1,11 @@
-﻿(function () {
+﻿
+
+(function () {
 
     angular.module('homeModule').controller('homeController',
         [
-            '$scope', '$rootScope', 'homeService', '$uibModal', 'NgTableParams', '$state', 'pmsModels',
-            function ($scope, $rootScope, homeService, $uibModal, NgTableParams, $state, pmsModels) {
-
+            '$scope', '$http', '$rootScope', 'homeService', '$uibModal', 'NgTableParams', '$state', 'pmsModels', '$window',
+            function ($scope, $http, $rootScope, homeService, $uibModal, NgTableParams, $state, pmsModels, $window) {
 
                 $scope.searchText = "";
                 $scope.serachModel = new pmsModels.SearchViewModel();
@@ -35,7 +36,6 @@
                     });
                 }
 
-
                 $scope.getAllProposalsAndOrdersByUserNameFiltered = function () {
                     $scope.userDataTable = new NgTableParams({
                         page: 1,
@@ -58,26 +58,13 @@
                                 });
                         }
                     });
-
                 };
 
                 $scope.getAllProposalsAndOrdersByUserNameFiltered();
 
-
-                $scope.createOrder = function (proposalId) {
-                    homeService.createOrder(proposalId)
-                        .then(function (result) {
-                            $scope.res = result;
-                            if ($scope.res == "Success") {
-                                $scope.reloadTable();
-                            }
-                        });
-                }
-
                 $scope.reloadTable = function () {
                     $scope.userDataTable.reload();
                 };
-
 
                 $scope.getCurrenUser = function () {
                     homeService.getCurrenUser()
@@ -85,6 +72,7 @@
                             $scope.user = result;
                             sessionStorage.setItem('Fullname', $scope.user.name + ' ' + $scope.user.surname);
                             sessionStorage.setItem('Role', $scope.user.role.name);
+                           
                         });
                 }
 
@@ -95,6 +83,40 @@
                     $scope.getAllProposalsAndOrdersByUserNameFiltered();
                 }
 
+                var accessToken = sessionStorage.getItem('accessToken');
+
+                $scope.connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44398/notificationHub", {
+                    accessTokenFactory: () => accessToken,
+                    skipNegotiation: true,
+                    transport: signalR.HttpTransportType.WebSockets
+                }).build();
+
+                $scope.connection.on("ReciveMessage", function (message) {
+                    $window.alert(message);
+                    $scope.showAlert(message);
+                });
+
+                $scope.connection.start().catch(function (err) {
+                });
+
+                //Send the message  
+                $scope.send = function (proposalNumber) { 
+                    $scope.connection.invoke("SendNotification", proposalNumber).catch(err => console.error(err.toString()));
+                };
+
+                $scope.createOrder = function (proposalId, proposalNumber) {
+                    homeService.createOrder(proposalId)
+                        .then(function (result) {
+                            $scope.res = result;
+                            if ($scope.res == "Success") {
+                                $scope.send(proposalNumber);
+                                $scope.reloadTable();
+                            }
+                        });
+                }
+              
+
             }]);
 }());
+
 

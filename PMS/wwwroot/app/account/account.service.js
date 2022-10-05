@@ -14,6 +14,17 @@ angular.module("accountModule").factory("accountService",
                     var result = repository.promisePost(url, null, "GET");
                     return result;
                 },
+                registeringUser: function (data) {
+                    var url = "/Account/RegisteringUser";
+                    var result = repository.promisePost(url, data, "POST");
+                    return result;
+                },
+                loginWithFacebook: function (data) {
+                    var url = "/Account/LoginWithFacebook";
+                    var result = repository.promisePost(url, data, "POST");
+                    return result;
+                },
+
                 
 
             };

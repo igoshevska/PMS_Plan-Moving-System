@@ -1,4 +1,5 @@
-﻿using PMS.Domain;
+﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using PMS.Domain;
 using PMS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,13 @@ namespace PMS.Services.Interface
         /// </summary>
         /// <returns></returns>
         User CheckUserExistence(LoginUserViewModel model);
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        string RegisterNewUser(UserRegistrationViewModel model);
+
     }
 }
+

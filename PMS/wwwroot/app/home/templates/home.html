@@ -41,7 +41,7 @@
                     <input type="checkbox" ng-model="p.priceProposal.hasPiano" disabled />
                 </td>
                 <td>
-                    <button class="btn btn-default" ng-if="p.order == null && user.role.id == 1" aria-hidden="true" style="cursor:pointer;" title="Order" ng-click="createOrder(p.id)">Order now</button>
+                    <button class="btn btn-default" ng-if="p.order == null && user.role.id == 1" aria-hidden="true" style="cursor:pointer;" title="Order" ng-click="createOrder(p.id, p.proposalNumber)">Order now</button>
                     <button class="btn btn-default" ng-if="p.order != null" aria-hidden="true" style="cursor:pointer;" title="Order" disabled>Ordered</button>
                 </td>
                 <td>
@@ -50,6 +50,7 @@
             </tr>
         </tbody>
     </table>
+
     <div ng-show="totalRows == 0">
         No proposals or orders found...
     </div>

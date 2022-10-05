@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -7,10 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using PMS.Domain;
 using PMS.Services.Interface;
 using PMS.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,18 +19,21 @@ namespace MoveIT.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
-    [Authorize]
+    [Microsoft.AspNetCore.Authorization.Authorize]
     public class AccountController : ControllerBase
     {
         private readonly IAccount _accountService;
-
         private readonly IConfiguration _configuration;
+        private readonly IFacebookAuth _facebookAuthService;
 
         public AccountController(IAccount accountService,
-                                 IConfiguration configuration)
+                                 IConfiguration configuration,                                 
+                                 IFacebookAuth facebookAuthService)
         {
             _accountService = accountService;
             _configuration = configuration;
+    
+            _facebookAuthService = facebookAuthService;
         }
 
         [AllowAnonymous]
@@ -49,13 +50,41 @@ namespace MoveIT.Controllers
             {
                 JwtSecurityToken jwtSecurityToken = CreateJwtToken(user);
                 return  new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
-
             }
             else
             {
                 return "Error";
             }
+        }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<string> LoginWithFacebook([FromBody]string accessToken)
+        {
+
+            var user = await _facebookAuthService.LoginWithFacebook(accessToken);
+
+            if (user.UserName == null)
+                return "Error";
+
+
+            if (ModelState.IsValid)
+            {
+                JwtSecurityToken jwtSecurityToken = CreateJwtToken(user);
+                return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            }
+            else
+            {
+                return "Error";
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult RegisteringUser([FromBody] UserRegistrationViewModel  model)
+        {
+            var result = _accountService.RegisterNewUser(model);
+            return new JsonResult(result);
         }
 
         private JwtSecurityToken CreateJwtToken(User user)

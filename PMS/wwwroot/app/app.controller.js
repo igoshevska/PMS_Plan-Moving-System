@@ -5,7 +5,6 @@
             '$scope', '$rootScope', 'appService', '$window','$location',
             function ($scope, $rootScope, appService, $window, $location) {
 
-               
             }]);
 }());
 

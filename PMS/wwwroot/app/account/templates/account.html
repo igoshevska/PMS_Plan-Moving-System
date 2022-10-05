@@ -1,5 +1,35 @@
-﻿<h1>Login</h1>
+﻿<style>
+    .buttonLogin {
+        background-color: #33b762; /* Green */
+        border: none;
+        color: #3c763d;
+        padding: 6px 18px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px -15px;
+        cursor: pointer;
+        border-radius: 30px;
+    }
+    .buttonRegister {
+        background-color: #33a5b7;
+        border: none;
+        color: #3c6976;
+        padding: 6px 18px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 18px;
+        cursor: pointer;
+        border-radius: 30px;
+    }
+</style>
 
+
+
+<h1>Login</h1>
 
 <div class="row" style="margin-bottom:10px">
     <div>Insert UserName</div>
@@ -7,7 +37,8 @@
 </div>
 <div class="row" style="margin-bottom:10px">
     <div>Insert Password</div>
-    <input type="text" name="userName" ng-model="model.password"/>
+    <input type="password" name="password" ng-model="model.password"/>
 </div>
 <div>{{message}}</div>
-<button ng-click="login()">LOGIN </button>
+<button class="buttonLogin" ng-click="login()">LOGIN </button>
+<button class="buttonRegister" ng-click="registeringUser()">REGISTER</button>
