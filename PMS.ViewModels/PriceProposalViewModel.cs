@@ -13,7 +13,7 @@ namespace PMS.ViewModels
         public int livingArea { get; set; }
         public int atticArea { get; set; }
         public bool hasPiano { get; set; }
-        public int price { get; set; }
+        public int priceEur { get; set; }
     }
 
     public class CalculatePriceProposalViewModel

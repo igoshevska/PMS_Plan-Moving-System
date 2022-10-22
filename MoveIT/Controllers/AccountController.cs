@@ -1,16 +1,12 @@
-﻿using Microsoft.AspNet.SignalR;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using PMS.Domain;
+using Microsoft.Extensions.Localization;
 using PMS.Services.Interface;
 using PMS.ViewModels;
-using System.Collections.Generic;
+using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,86 +21,109 @@ namespace MoveIT.Controllers
         private readonly IAccount _accountService;
         private readonly IConfiguration _configuration;
         private readonly IFacebookAuth _facebookAuthService;
+        //private readonly IStringLocalizer<AccountController> _localizer;
 
         public AccountController(IAccount accountService,
                                  IConfiguration configuration,                                 
-                                 IFacebookAuth facebookAuthService)
+                                 IFacebookAuth facebookAuthService
+                                 /*IStringLocalizer<AccountController> localizer*/)
         {
             _accountService = accountService;
             _configuration = configuration;
-    
             _facebookAuthService = facebookAuthService;
+            //_localizer = localizer;
         }
+
+        //[AllowAnonymous]
+        //[HttpGet]
+        //public string Ivana()
+        //{
+        //    return _localizer["About Title"];
+        //}
 
         [AllowAnonymous]
         [HttpPost]
-        public string Login([FromBody] LoginUserViewModel model)
+        public ApiResponseModel<string> Login([FromBody] LoginUserViewModel model)
         {
+
             var user = _accountService.CheckUserExistence(model);
 
             if (user.UserName == null)
-                return "Error";
-
+                return new ApiResponseModel<string>() 
+                { 
+                  responseCode = 400,
+                  responseMessage = "Error",
+                  response = "Error" 
+                };
 
             if (ModelState.IsValid)
             {
-                JwtSecurityToken jwtSecurityToken = CreateJwtToken(user);
-                return  new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+                JwtSecurityToken jwtSecurityToken = _accountService.CreateJwtToken(user);
+                return new ApiResponseModel<string>()
+                {
+                    responseCode = 200,
+                    responseMessage = "OK",
+                    response = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
+                };
             }
             else
             {
-                return "Error";
+                return new ApiResponseModel<string>()
+                {
+                    responseCode = 400,
+                    responseMessage = "Error",
+                    response = "Error"
+                };
             }
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<string> LoginWithFacebook([FromBody]string accessToken)
+        public async Task<ApiResponseModel<string>> LoginWithFacebook([FromBody]string accessToken)
         {
-
+            
             var user = await _facebookAuthService.LoginWithFacebook(accessToken);
 
             if (user.UserName == null)
-                return "Error";
-
+                return new ApiResponseModel<string>()
+                {
+                    responseCode = 400,
+                    responseMessage = "Error",
+                    response = "Error"
+                };
 
             if (ModelState.IsValid)
             {
-                JwtSecurityToken jwtSecurityToken = CreateJwtToken(user);
-                return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+                JwtSecurityToken jwtSecurityToken = _accountService.CreateJwtToken(user);
+                return new ApiResponseModel<string>() 
+                {  
+                    responseCode=200,
+                    responseMessage = "OK",
+                    response=new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
+                };
             }
             else
             {
-                return "Error";
+                return new ApiResponseModel<string>()
+                {
+                    responseCode = 400,
+                    responseMessage = "Error",
+                    response = "Error"
+                };
             }
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public JsonResult RegisteringUser([FromBody] UserRegistrationViewModel  model)
+        public ApiResponseModel<string> RegisteringUser([FromBody] UserRegistrationViewModel  model)
         {
             var result = _accountService.RegisterNewUser(model);
-            return new JsonResult(result);
-        }
-
-        private JwtSecurityToken CreateJwtToken(User user)
-        {
-
-            var claims = new List<Claim>
-                        {
-                            new Claim(ClaimTypes.Name, user.UserName),
-                            new Claim(ClaimTypes.Role, user.Role.Name),
-                        };
-
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
-            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
-            var jwtSecurityToken = new JwtSecurityToken(
-                issuer: _configuration["JWT:Issuer"],
-                audience: _configuration["JWT:Audience"],
-                claims: claims,
-                signingCredentials: signingCredentials);
-
-            return jwtSecurityToken;
+            return new ApiResponseModel<string>()
+            {
+                responseCode = 200,
+                responseMessage = "OK",
+                response = result
+            };
         }
     }
 }

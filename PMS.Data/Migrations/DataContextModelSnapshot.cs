@@ -57,8 +57,11 @@ namespace PMS.Data.Migrations
                     b.Property<int>("LivingArea")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<double>("PriceEur")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PriceMkd")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -117,7 +120,9 @@ namespace PMS.Data.Migrations
             modelBuilder.Entity("PMS.Domain.User", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");

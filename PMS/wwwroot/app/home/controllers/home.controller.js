@@ -49,9 +49,9 @@
                             
                             return homeService.getAllProposalsAndOrdersByUserNameFiltered($scope.serachModel)
                                 .then(function (result) {
-                                    var data = result.items;
-                                    params.total(result.totalItems);
-                                    $scope.totalRows = result.totalItems;
+                                    var data = result.response.items;
+                                    params.total(result.response.totalItems);
+                                    $scope.totalRows = result.response.totalItems;
                                     $scope.allProposals = data;
 
                                     return data;
@@ -69,7 +69,7 @@
                 $scope.getCurrenUser = function () {
                     homeService.getCurrenUser()
                         .then(function (result) {
-                            $scope.user = result;
+                            $scope.user = result.response;
                             sessionStorage.setItem('Fullname', $scope.user.name + ' ' + $scope.user.surname);
                             sessionStorage.setItem('Role', $scope.user.role.name);
                            
@@ -107,7 +107,7 @@
                 $scope.createOrder = function (proposalId, proposalNumber) {
                     homeService.createOrder(proposalId)
                         .then(function (result) {
-                            $scope.res = result;
+                            $scope.res = result.response;
                             if ($scope.res == "Success") {
                                 $scope.send(proposalNumber);
                                 $scope.reloadTable();

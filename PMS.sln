@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoveIT", "MoveIT\MoveIT.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PMS.Configuration", "PMS.Configuration\PMS.Configuration.csproj", "{97EC0F71-5FF2-43F4-9E5E-D12F42084AEE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientServices", "ClientServices", "{953EF074-24C0-4B7D-BDF2-AD3E6B904BB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBRM", "NBRM\NBRM.csproj", "{8ECE3AFB-FB21-49EA-8D56-454E59BCAF67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,9 +55,16 @@ Global
 		{97EC0F71-5FF2-43F4-9E5E-D12F42084AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97EC0F71-5FF2-43F4-9E5E-D12F42084AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97EC0F71-5FF2-43F4-9E5E-D12F42084AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ECE3AFB-FB21-49EA-8D56-454E59BCAF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECE3AFB-FB21-49EA-8D56-454E59BCAF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECE3AFB-FB21-49EA-8D56-454E59BCAF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECE3AFB-FB21-49EA-8D56-454E59BCAF67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8ECE3AFB-FB21-49EA-8D56-454E59BCAF67} = {953EF074-24C0-4B7D-BDF2-AD3E6B904BB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D08D311-A77E-4262-871C-07C3120A261E}

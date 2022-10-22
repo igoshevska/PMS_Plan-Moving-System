@@ -1,15 +1,13 @@
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic;
 using MoveIT.Hubs;
 using PMS.Configuration;
 using PMS.Data;
@@ -17,8 +15,7 @@ using PMS.Data.Repositories;
 using PMS.Domain;
 using PMS.Services.Implementation;
 using PMS.Services.Interface;
-using System;
-using System.Security.Claims;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,9 +35,9 @@ namespace MoveIT
         {
 
             services.AddCors(options => options.AddPolicy("CorsPolicy", p => p.AllowAnyOrigin()
-                                                                            .AllowAnyMethod()
-                                                                            .AllowAnyHeader()
-                                                                            ));
+                                                                              .AllowAnyMethod()
+                                                                              .AllowAnyHeader() 
+                                                          ));
 
             services.AddHsts(options =>
             {
@@ -57,28 +54,31 @@ namespace MoveIT
             services.AddScoped<IProposalAndOrder, ProposalAndOrderService>();
             services.AddScoped<IAccount, AccountService>();
             services.AddScoped<IFacebookAuth, FacebookAuthService>();
+
             services.AddScoped<IRepository<User>, Repository<User>>();
             services.AddScoped<IRepository<Role>, Repository<Role>>();
             services.AddScoped<IRepository<PriceProposal>, Repository<PriceProposal>>();
             services.AddScoped<IRepository<Order>, Repository<Order>>();
             services.AddScoped<IRepository<Proposal>, Repository<Proposal>>();
             services.AddScoped<IRepository<Proposal>, Repository<Proposal>>();
-            
+
 
             services.AddDbContext<DataContext>(options => { });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddSingleton(AutoMapperConfiguration.Initialize());
 
             services.AddAuthorization();
             services.AddAuthentication(x =>
-            
+           
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(o =>
             {
                 var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+
                 o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -88,7 +88,8 @@ namespace MoveIT
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["JWT:Issuer"],
                     ValidAudience = Configuration["JWT:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Key)
+                    IssuerSigningKey = new SymmetricSecurityKey(Key),
+                    
                 };
                 o.Events = new JwtBearerEvents
                 {
@@ -116,6 +117,25 @@ namespace MoveIT
 
             services.AddControllersWithViews();
             services.AddSignalR();
+
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.Configure<ForwardedHeadersOptions>(
+                options =>
+                {
+                    options.KnownProxies.Add(IPAddress.Parse("Your IP address"));
+                });
+            services.AddLocalization();
+
+
+            //services.Configure<RequestLocalizationOptions>(options =>
+            //{
+            //    var supportedCultures = new[] { "en", "de", "mk" };
+            //    options
+            //        .AddSupportedCultures(supportedCultures)
+            //        .AddSupportedUICultures(supportedCultures)
+            //        .SetDefaultCulture("de");
+            //});
+
 
         }
 
@@ -150,8 +170,15 @@ namespace MoveIT
                 endpoints.MapHub<NotificationHub>("/notificationHub");
 
             });
+           app.UseRequestLocalization(options =>
+            {
+                var supportedCultures = new[] { "en", "de", "mk" };
+                options
+                    .AddSupportedCultures(supportedCultures)
+                    .AddSupportedUICultures(supportedCultures)
+                    .SetDefaultCulture("de");
+            });
             app.UseWebSockets();
-
         }
     }
 }

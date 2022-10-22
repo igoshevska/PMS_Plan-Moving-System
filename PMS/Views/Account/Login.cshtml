@@ -1,8 +1,36 @@
-﻿@{ 
+﻿
+
+@*@using System.Globalization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@inject IOptions<RequestLocalizationOptions> LocaliztionOptions
+
+
+
+@{
+    var RequestCultureInfo = Context.Features.Get<IRequestCultureFeature>();
+}
+
+<div class="alert alert-info col-12" role="alert">
+    Current culture: @CultureInfo.CurrentCulture<br>
+    Current UI culture: @CultureInfo.CurrentUICulture
+</div>
+
+
+<div class="mt3 mb-3">
+    @foreach (var culture in LocaliztionOptions.Value.SupportedCultures)
+    {
+        <span class="badge rounded-pill" 
+        >@culture</span>
+    }
+</div>*@
+@{ 
     var apiUrl = ViewBag.apiUrl;
     var uiUrl = ViewBag.uiUrl;
-
 }
+
+
 <script>
     var apiUrl = '@apiUrl';
     var uiUrl = '@uiUrl';

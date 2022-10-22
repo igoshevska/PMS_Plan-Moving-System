@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -27,14 +28,12 @@ namespace PMS.Services.Implementation
         #region Declaration
         private readonly ILogger _logger;
         private readonly IRepository<User> _usersRepo;
-        //private readonly IFacebookAuth _facebookAuthService;
         private readonly IConfiguration _configuration;
         #endregion
 
         #region ctor
         public AccountService(ILogger<AccountService> logger,
                                  IRepository<User> usersRepo,
-                                 //IFacebookAuth facebookAuthService,
                                  IConfiguration configuration)
         {
             _logger = logger;
@@ -176,6 +175,26 @@ namespace PMS.Services.Implementation
                 return false;
             }
         }
- 
+
+        public JwtSecurityToken CreateJwtToken(User user)
+        {
+
+            var claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Name, user.UserName),
+                            new Claim(ClaimTypes.Role, user.Role.Name),
+                        };
+
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
+            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+            var jwtSecurityToken = new JwtSecurityToken(
+                issuer: _configuration["JWT:Issuer"],
+                audience: _configuration["JWT:Audience"],
+                claims: claims,
+                signingCredentials: signingCredentials);
+
+            return jwtSecurityToken;
+        }
+
     }
 }

@@ -22,6 +22,7 @@ namespace PMS.Domain
         [Required]
         public bool HasPiano { get; set; }
         [Required]
-        public int Price { get; set; }
+        public double PriceEur { get; set; }
+        public double PriceMkd { get; set; }
     }
 }

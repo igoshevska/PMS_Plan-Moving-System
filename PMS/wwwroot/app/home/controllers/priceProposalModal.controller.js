@@ -10,8 +10,7 @@
                 $scope.createPriceProposal = function () {
                     homeService.createPriceProposal($scope.model)
                         .then(function (result) {
-                            $uibModalInstance.close(result);
-
+                            $uibModalInstance.close(result.response);
                         });
                 };
 

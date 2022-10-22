@@ -71,6 +71,7 @@ namespace PMS
                     name: "home",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

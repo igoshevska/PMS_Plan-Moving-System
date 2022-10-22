@@ -30,7 +30,8 @@ namespace PMS.Data.Migrations
                     LivingArea = table.Column<int>(nullable: false),
                     AtticArea = table.Column<int>(nullable: false),
                     HasPiano = table.Column<bool>(nullable: false),
-                    Price = table.Column<int>(nullable: false)
+                    PriceEur = table.Column<double>(nullable: false),
+                    PriceMkd = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,7 +54,8 @@ namespace PMS.Data.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Surname = table.Column<string>(nullable: true),
                     UserName = table.Column<string>(nullable: true),

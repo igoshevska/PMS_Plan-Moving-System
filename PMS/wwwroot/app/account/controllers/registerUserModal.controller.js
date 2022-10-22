@@ -11,8 +11,8 @@
                 $scope.registeringUser = function () {
                     accountService.registeringUser($scope.registerModel)
                         .then(function (result) {
-                            if (result == "Success") {
-                                $uibModalInstance.close(result);
+                            if (result.response == "Success") {
+                                $uibModalInstance.close(result.response);
                             }
                             else {
                                 $scope.message = result;
@@ -92,8 +92,8 @@
                 $scope.loginWithFacebook = function (accessToken) {
                     accountService.loginWithFacebook(accessToken)
                         .then(function (result) {
-                            if (result != "Error") {
-                                sessionStorage.setItem('accessToken', result);
+                            if (result.response != "Error") {
+                                sessionStorage.setItem('accessToken', result.response);
                                 $scope.openPriceProposal(uiUrl);
                             }
                             else {

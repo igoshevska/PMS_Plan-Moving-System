@@ -6,11 +6,14 @@ using PMS.Domain;
 using PMS.Services.Interface;
 using PMS.ViewModels;
 using PMS.ViewModels.Enums;
+using ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using static NBRM.KursResult;
 
 namespace PMS.Services.Implementation
 {
@@ -40,7 +43,7 @@ namespace PMS.Services.Implementation
         #endregion
 
         #region CreatingProposalsAndOrders 
-        public string CreatePriceProposal(CalculatePriceProposalViewModel model, string currentClientId)
+        public async Task<string> CreatePriceProposal(CalculatePriceProposalViewModel model, string currentClientId)
         {
             try
             {
@@ -51,7 +54,8 @@ namespace PMS.Services.Implementation
                     pricePropsal.LivingArea = model.livingArea;
                     pricePropsal.AtticArea = model.atticArea;
                     pricePropsal.HasPiano = model.hasPiano;
-                    pricePropsal.Price = CalculatePriceProposal(model);
+                    pricePropsal.PriceEur = CalculatePriceProposal(model);
+                    pricePropsal.PriceMkd = pricePropsal.PriceEur * (await GetRateExchange());
 
                     _priceProposalRepo.Create(pricePropsal);
 
@@ -144,6 +148,7 @@ namespace PMS.Services.Implementation
         {
             try
             {
+                var request = new GetExchangeRateRequest();
                 IQueryable<Proposal> allProposals;
                 var currentUser = _usersRepo.Query().Include(x => x.Role).Where(x => x.UserName == userName).FirstOrDefault();
 
@@ -162,12 +167,8 @@ namespace PMS.Services.Implementation
                                         || x.PriceProposal.Distance.ToString().Contains(searchModel.searchText)
                                         || x.PriceProposal.LivingArea.ToString().Contains(searchModel.searchText)
                                         || x.PriceProposal.AtticArea.ToString().Contains(searchModel.searchText)
-                                        || x.PriceProposal.Price.ToString().Contains(searchModel.searchText)
+                                        || x.PriceProposal.PriceEur.ToString().Contains(searchModel.searchText)
                                         || searchModel.searchText == "").OrderBy(x => x.ProposalNumber);
-
-
-
-
 
                 var allProposalsPaged = allProposals.Skip((searchModel.page - 1) * searchModel.rows).Take(searchModel.rows);
                 var count = allProposals.Count();
@@ -282,8 +283,39 @@ namespace PMS.Services.Implementation
                 throw;
             }
         }
-
         #endregion
 
+        #region ClientService
+        private async Task<double> GetRateExchange()
+        {
+            var client = new KursSoapClient(KursSoapClient.EndpointConfiguration.KursSoap);
+
+            client.OpenAsync();
+
+            var exchangeRate = await client.GetExchangeRateAsync(DateTime.Now.ToString("dd.MM.yyyy"), DateTime.Now.ToString("dd.MM.yyyy"));
+
+            client.CloseAsync();
+
+            XmlRootAttribute xRoot = new XmlRootAttribute();
+            XmlSerializer serializer = new XmlSerializer(typeof(dsKurs), xRoot);
+            var kurs = new dsKurs();
+
+            using (TextReader reader = new StringReader(exchangeRate.Body.GetExchangeRateResult))
+            {
+                kurs = (dsKurs)serializer.Deserialize(reader);
+            }
+
+            var sredenKurs = 0.0;
+            foreach (var item in kurs.KursZbir)
+            {
+                if (item.Oznaka == "EUR")
+                {
+                    sredenKurs = item.Sreden;
+                    break;
+                }
+            }
+            return sredenKurs;
+        }
+        #endregion
     }
 }

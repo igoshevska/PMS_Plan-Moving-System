@@ -15,7 +15,7 @@
                 $scope.getProposalByProposalId = function () {
                     homeService.getProposalByProposalId($scope.proposalId)
                         .then(function (result) {
-                            $scope.proposalDetails = result;
+                            $scope.proposalDetails = result.response;
                         });
                 }
 

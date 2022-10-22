@@ -28,7 +28,7 @@ namespace PMS.Services.Interface
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        string CreatePriceProposal(CalculatePriceProposalViewModel model, string currentClientId); 
+        Task<string> CreatePriceProposal(CalculatePriceProposalViewModel model, string currentClientId); 
 
         /// <summary>
         /// Creating orders

@@ -10,14 +10,13 @@
                 $scope.login = function () {
                     accountService.login($scope.model)
                         .then(function (result) {
-                            if (result != "Error") {
-                                sessionStorage.setItem('accessToken', result);
+                            if (result.response != "Error") {
+                                sessionStorage.setItem('accessToken', result.response);
                                 $scope.openPriceProposal(uiUrl);
                             }
                             else {
                                 $scope.message = "Invalid username or password";
                             }
-                            
                         });
                 }
 

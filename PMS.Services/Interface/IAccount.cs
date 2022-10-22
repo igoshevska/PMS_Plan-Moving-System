@@ -3,6 +3,7 @@ using PMS.Domain;
 using PMS.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,12 @@ namespace PMS.Services.Interface
         /// <param name="model"></param>
         /// <returns></returns>
         string RegisterNewUser(UserRegistrationViewModel model);
-
+        /// <summary>
+        /// Creating JWT
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public JwtSecurityToken CreateJwtToken(User user);
     }
 }
 
