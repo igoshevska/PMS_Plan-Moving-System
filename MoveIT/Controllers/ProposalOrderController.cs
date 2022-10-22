@@ -59,7 +59,7 @@ namespace MoveIT.Controllers
             int charLocation = acceptLanguage.IndexOf(",", StringComparison.Ordinal);
 
 
-
+            //test
            
             var acsa = acceptLanguage.Substring(0, charLocation);
             var requestCulture = new RequestCulture(acsa);
