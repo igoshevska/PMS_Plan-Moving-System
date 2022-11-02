@@ -25,8 +25,6 @@ angular.module("accountModule").factory("accountService",
                     return result;
                 },
 
-                
-
             };
 
 

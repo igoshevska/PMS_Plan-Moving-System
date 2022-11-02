@@ -8,6 +8,7 @@
             function ($scope, $http, $rootScope, homeService, $uibModal, NgTableParams, $state, pmsModels, $window) {
 
                 $scope.searchText = "";
+                $scope.currentLanguage = "";
                 $scope.serachModel = new pmsModels.SearchViewModel();
 
                 $scope.openProposalDetails = function (proposalId) {
@@ -35,6 +36,46 @@
                         }
                     });
                 }
+
+                $scope.chooseCurrency = function () {
+                    var modalInstance = $uibModal.open({
+                        animation: false,
+                        scope: $scope,
+                        backdrop: 'static',
+                        templateUrl: "/app/home/templates/currencyModal.html",
+                        controller: 'currencyModalController',
+                        windowClass: 'modal custom-modal-width',
+                        size: 'md',
+                    });
+                    modalInstance.result.then(function (currency) {
+                        if (currency != null) {
+                            $scope.reloadTable();
+                            $scope.currentLanguage = currency;
+                        }
+                        else {
+                            "Error"
+                        }
+                    });
+                }
+
+                $scope.getCurrentCulture = function () {
+                    homeService.getCurrentCulture()
+                        .then(function (result) {
+                            if (result.response != "Error") {
+                                var currentCulture = sessionStorage.getItem('currentCulture', result.response);
+                                if (currentCulture == null) {
+                                    sessionStorage.setItem('currentCulture', result.response);
+                                    $scope.currentLanguage = result.response;
+                                }
+                                else {
+                                    $scope.currentLanguage = sessionStorage.getItem('currentCulture', result.response);
+                                }
+                                
+                            } 
+                        });
+                }
+
+                $scope.getCurrentCulture();
 
                 $scope.getAllProposalsAndOrdersByUserNameFiltered = function () {
                     $scope.userDataTable = new NgTableParams({
@@ -114,7 +155,6 @@
                             }
                         });
                 }
-              
 
             }]);
 }());

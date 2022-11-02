@@ -25,7 +25,8 @@
             <div>Has Piano:     <input type="checkbox" ng-model="proposalDetails.priceProposal.hasPiano" disabled /></div>
             <div>Address From:  {{proposalDetails.addressFrom}}</div>
             <div>Address To:    {{proposalDetails.addressTo}}</div>
-            <h1>Price:          {{proposalDetails.priceProposal.price}}</h1>
+            <h1 ng-if="currentLanguage != 'mk'">Price: {{proposalDetails.priceProposal.priceEur}} eur</h1>
+            <h1 ng-if="currentLanguage == 'mk'" >Price: {{proposalDetails.priceProposal.priceMkd}} mkd</h1>
         </div>
         <div class="col-sm-4">
             <h2>User:</h2>

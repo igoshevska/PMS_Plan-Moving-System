@@ -18,7 +18,7 @@
                             $scope.proposalDetails = result.response;
                         });
                 }
-
+                $scope.currentLanguage = $scope.currentLanguage = sessionStorage.getItem('currentCulture');
                 $scope.getProposalByProposalId();
 
                 $scope.back = function () {

@@ -5,9 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace PMS.ViewModels
 {
+
+    public class TestViewModel 
+    {
+        public string test { get; set; }
+    }
+
     public class LoginUserViewModel
     {
         public string userName { get; set; }

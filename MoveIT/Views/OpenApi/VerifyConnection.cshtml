@@ -1,41 +1,4 @@
-﻿@page
-@using System.Globalization
-@using Microsoft.AspNetCore.Builder
-@using Microsoft.AspNetCore.Localization
-@using Microsoft.Extensions.Options
-@inject IOptions<RequestLocalizationOptions> LocaliztionOptions
-
-
-@*@{
-    var RequestCultureInfo = HttpContext.Features.Get<IRequestCultureFeature>();
-}*@
-
-<div class="alert alert-info col-12" role="alert">
-    Current culture: @CultureInfo.CurrentCulture<br>
-    Current UI culture: @CultureInfo.CurrentUICulture
-</div>
-
-<div class="mt-3 mb-3">
-@foreach (var culture in LocaliztionOptions.Value.SupportedCultures)
-{
-    @*<a asp-page-handler="SetCulture" asp-route-cultureName="@culture" class="text-decoration-none">*@
-        <span class="badge rounded-pill 
-            @((culture.ToString() == CultureInfo.CurrentCulture.ToString()) ? 
-                "bg-primary" : "bg-info text-dark")">@culture</span>
-   @* </a>*@
-}
-</div>
-@*<div class="mt3 mb-3">
-    @foreach (var culture in LocaliztionOptions.Value.SupportedCultures)
-    {
-        <span class="badge rounded-pill"
-            @((culture.ToString() == @CultureInfo.CurrentCulture.ToString())?
-              "bg-primary" : "bg-info text-dark")
-        >@culture</span>
-    }
-</div>*@
-
-
+﻿
 <body>
     <h1>CONNECTION VERIFIED</h1>
 </body>

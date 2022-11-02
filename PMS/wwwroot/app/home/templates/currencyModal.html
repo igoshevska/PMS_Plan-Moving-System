@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>Select your currency</h2>
+    <button ng-repeat="currency in allCultures" ng-click="changeCurrency(currency)">{{currency}}</button>
+
+    <div class="modal-footer">
+        <span class="pull-right">
+            <button class="btn btn-danger btn-lg" ng-click="cancel()">Cancel</button>
+        </span>
+    </div>
+</body>
+
+</html>

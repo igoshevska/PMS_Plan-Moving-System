@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using PMS.Services.Interface;
 using PMS.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Net;
 using System.Threading.Tasks;
@@ -21,16 +22,12 @@ namespace MoveIT.Controllers
     public class ProposalOrderController : ControllerBase
     {
         private readonly IProposalAndOrder _proposalAndOrderService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IOptions<RequestLocalizationOptions> _options;
-        private IRequestCultureProvider winningProvider;
+        private readonly IRequestCultureProvider _cultureProvider;
 
-        public ProposalOrderController(IProposalAndOrder proposalAndOrderService, IHttpContextAccessor httpContextAccessor,
-            IOptions<RequestLocalizationOptions> options)
+
+        public ProposalOrderController(IProposalAndOrder proposalAndOrderService)
         {
             _proposalAndOrderService = proposalAndOrderService;
-            _httpContextAccessor = httpContextAccessor;
-            _options = options;
         }
 
         [HttpPost]
@@ -46,58 +43,20 @@ namespace MoveIT.Controllers
                 response = await _proposalAndOrderService.CreatePriceProposal(model, currentUser)
             };
         }
+
         [HttpPost]
         [Authorize(Roles = "Sales, Client")]
         public ApiResponseModel<SearchResult<ProposalViewModel>> GetAllProposalsAndOrdersByUserNameFiltered([FromBody] ProposalSerchViewModel serachModel)
         {
             var userName = HttpContext.User.Identity.Name;
-            var userName1 = HttpContext.User.Identity.IsAuthenticated;
-            
-            var a = _options.Value.SupportedCultures;
-            var acceptLanguage = HttpContext.Request.Headers["accept-language"].ToString();
 
-            int charLocation = acceptLanguage.IndexOf(",", StringComparison.Ordinal);
-
-
-            //test
-           
-            var acsa = acceptLanguage.Substring(0, charLocation);
-            var requestCulture = new RequestCulture(acsa);
-            //var winningProvider = new RequestCultureProvider();
-            HttpContext.Features.Set<IRequestCultureFeature>(new RequestCultureFeature(requestCulture, winningProvider));
-
-
-
-            SetCurrentThreadCulture(requestCulture);
-            var f = CultureInfo.CurrentCulture;
-            var g = CultureInfo.CurrentUICulture;
-            var h = CultureInfo.DefaultThreadCurrentCulture;
-            var RequestCultureInfo = HttpContext.Features.Get<IRequestCultureFeature>();
-            var RequestCultureInfo1 = HttpContext.Features.Get<IHttpConnectionFeature>();
-            IPAddress RequestCultureInfo1c = RequestCultureInfo1.RemoteIpAddress;
-            var RequestCultureInfo1cde = RequestCultureInfo1.LocalIpAddress.ToString();
             return new ApiResponseModel<SearchResult<ProposalViewModel>>()
             {
                 responseCode = 200,
                 responseMessage = "OK",
-                response = _proposalAndOrderService.GetAllProposalsAndOrdersByUserNameFiltered(serachModel, userName)
+                response = _proposalAndOrderService.GetAllProposalsAndOrdersByUserNameFiltered(serachModel, userName, "smcdds")
             };
-
-
         }
-
-
-
-
-
-
-        private static void SetCurrentThreadCulture(RequestCulture requestCulture)
-        {
-            CultureInfo.CurrentCulture = requestCulture.Culture;
-            CultureInfo.CurrentUICulture = requestCulture.UICulture;
-        }
-
-
 
         [HttpPost]
         [Authorize(Roles = "Client")]
@@ -135,6 +94,49 @@ namespace MoveIT.Controllers
                 response = _proposalAndOrderService.GetCurrenUser(getCurrentUser)
             };
         }
+
+        [HttpGet]
+        [Authorize(Roles = "Sales, Client")]
+        public ApiResponseModel<string> GetCurrentCulture()
+        {
+            var acceptLanguage = HttpContext.Request.Headers["accept-language"].ToString();
+            var culture = _proposalAndOrderService.GetCurrentCulture(acceptLanguage);
+            HttpContext.Features.Set<IRequestCultureFeature>(new RequestCultureFeature(culture, _cultureProvider));
+            var currentCulture = HttpContext.Features.Get<IRequestCultureFeature>();
+            if (currentCulture != null)
+            {
+                return new ApiResponseModel<string>()
+                {
+                    responseCode = 200,
+                    responseMessage = "OK",
+                    response = currentCulture.RequestCulture.Culture.ToString()
+                };
+            }
+            else
+            {
+                return new ApiResponseModel<string>()
+                {
+                    responseCode = 400,
+                    responseMessage = "Error",
+                    response = "Error"
+                };
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Sales, Client")]
+        public ApiResponseModel<List<string>> GetAllCultures()
+        {
+            
+            return new ApiResponseModel<List<string>>
+            {
+                responseCode = 200,
+                responseMessage = "Success",
+                response = _proposalAndOrderService.GetAllCultures()
+            };
+        }
+
+
 
     }
 }

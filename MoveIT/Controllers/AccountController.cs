@@ -21,25 +21,16 @@ namespace MoveIT.Controllers
         private readonly IAccount _accountService;
         private readonly IConfiguration _configuration;
         private readonly IFacebookAuth _facebookAuthService;
-        //private readonly IStringLocalizer<AccountController> _localizer;
+
 
         public AccountController(IAccount accountService,
                                  IConfiguration configuration,                                 
-                                 IFacebookAuth facebookAuthService
-                                 /*IStringLocalizer<AccountController> localizer*/)
+                                 IFacebookAuth facebookAuthService)
         {
             _accountService = accountService;
             _configuration = configuration;
             _facebookAuthService = facebookAuthService;
-            //_localizer = localizer;
         }
-
-        //[AllowAnonymous]
-        //[HttpGet]
-        //public string Ivana()
-        //{
-        //    return _localizer["About Title"];
-        //}
 
         [AllowAnonymous]
         [HttpPost]
@@ -125,5 +116,7 @@ namespace MoveIT.Controllers
                 response = result
             };
         }
+
+       
     }
 }

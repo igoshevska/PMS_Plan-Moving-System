@@ -29,9 +29,16 @@ angular.module("homeModule").factory("homeService",
                     var result = repository.promisePost(url, data, "POST");
                     return result;
                 },
-
+                getCurrentCulture: function () {
+                    var url = "/ProposalOrder/GetCurrentCulture";
+                    var result = repository.promisePost(url, null, "GET");
+                    return result;
+                },
+                getAllCultures: function () {
+                    var url = "/ProposalOrder/GetAllCultures";
+                    var result = repository.promisePost(url, null, "GET");
+                    return result;
+                },
             };
-
-
         }
     ]);

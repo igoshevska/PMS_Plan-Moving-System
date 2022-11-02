@@ -113,26 +113,46 @@ namespace PMS.Services.Implementation
                 throw;
             }
         }
-        public static string TextToEncrypt(string password)
+
+        public JwtSecurityToken CreateJwtToken(User user)
+        {
+
+            var claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Name, user.UserName),
+                            new Claim(ClaimTypes.Role, user.Role.Name),
+                        };
+
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
+            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+            var jwtSecurityToken = new JwtSecurityToken(
+                issuer: _configuration["JWT:Issuer"],
+                audience: _configuration["JWT:Audience"],
+                claims: claims,
+                signingCredentials: signingCredentials);
+
+            return jwtSecurityToken;
+        }
+
+        private static string TextToEncrypt(string password)
         {
             return Convert.ToBase64String(System.Security.Cryptography.SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(password)));
         }
-        public static bool IsPasswordMatch(string password, string confirmPassword)
+        private static bool IsPasswordMatch(string password, string confirmPassword)
         {
             if(password == confirmPassword)
                 return true;
             return false;
         }
 
-        public static bool IsUsernameTaken(string userName, IRepository <User> _userRepo) 
+        private static bool IsUsernameTaken(string userName, IRepository <User> _userRepo) 
         {
             var chechUserName = _userRepo.Query().Where(x => x.UserName == userName).ToList();
             if (chechUserName.Count == 0)
                 return true;
             return false;
         }
-
-        public static bool IsValidEmail(string email)
+        private static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
                 return false;
@@ -176,25 +196,6 @@ namespace PMS.Services.Implementation
             }
         }
 
-        public JwtSecurityToken CreateJwtToken(User user)
-        {
-
-            var claims = new List<Claim>
-                        {
-                            new Claim(ClaimTypes.Name, user.UserName),
-                            new Claim(ClaimTypes.Role, user.Role.Name),
-                        };
-
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
-            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
-            var jwtSecurityToken = new JwtSecurityToken(
-                issuer: _configuration["JWT:Issuer"],
-                audience: _configuration["JWT:Audience"],
-                claims: claims,
-                signingCredentials: signingCredentials);
-
-            return jwtSecurityToken;
-        }
-
+   
     }
 }

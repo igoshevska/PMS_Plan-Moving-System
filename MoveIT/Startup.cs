@@ -127,14 +127,14 @@ namespace MoveIT
             services.AddLocalization();
 
 
-            //services.Configure<RequestLocalizationOptions>(options =>
-            //{
-            //    var supportedCultures = new[] { "en", "de", "mk" };
-            //    options
-            //        .AddSupportedCultures(supportedCultures)
-            //        .AddSupportedUICultures(supportedCultures)
-            //        .SetDefaultCulture("de");
-            //});
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[] { "en","mk" };
+                options
+                    .AddSupportedCultures(supportedCultures)
+                    .AddSupportedUICultures(supportedCultures)
+                    .SetDefaultCulture("en");
+            });
 
 
         }
@@ -170,14 +170,14 @@ namespace MoveIT
                 endpoints.MapHub<NotificationHub>("/notificationHub");
 
             });
-           app.UseRequestLocalization(options =>
-            {
-                var supportedCultures = new[] { "en", "de", "mk" };
-                options
-                    .AddSupportedCultures(supportedCultures)
-                    .AddSupportedUICultures(supportedCultures)
-                    .SetDefaultCulture("de");
-            });
+           //app.UseRequestLocalization(options =>
+           // {
+           //     var supportedCultures = new[] { "en", "de", "mk" };
+           //     options
+           //         .AddSupportedCultures(supportedCultures)
+           //         .AddSupportedUICultures(supportedCultures)
+           //         .SetDefaultCulture("de");
+           // });
             app.UseWebSockets();
         }
     }

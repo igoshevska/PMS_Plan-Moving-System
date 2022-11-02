@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+﻿using Microsoft.AspNetCore.Localization;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using PMS.Domain;
 using PMS.ViewModels;
 using System;
