@@ -27,6 +27,7 @@
     <ProjectReference Include="..\PMS.Configuration\PMS.Configuration.csproj" />
     <ProjectReference Include="..\PMS.Data\PMS.Data.csproj" />
     <ProjectReference Include="..\PMS.Services\PMS.Services.csproj" />
+    <ProjectReference Include="..\Wrapper\PMS.Wrapper.csproj" />
   </ItemGroup>
 
 </Project>

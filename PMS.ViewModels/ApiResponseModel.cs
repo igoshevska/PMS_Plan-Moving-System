@@ -8,9 +8,16 @@ namespace PMS.ViewModels
 {
     public class ApiResponseModel<T>
     {
-        public int responseCode { get; set; }
-        public string responseMessage { get; set; }
+        public ErrorHandler errorHandler { get; set; }
         public T response { get; set; }
     }
+
+    public class ErrorHandler 
+    {
+        public int responseCode { get; set; }
+        public string responseMessage { get; set; }
+    }
+
+
 
 }

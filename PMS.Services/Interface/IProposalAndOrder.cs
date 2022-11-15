@@ -16,7 +16,7 @@ namespace PMS.Services.Interface
         /// </summary>
         /// <param name="userName">username of current user</param>
         /// <returns></returns>
-        SearchResult<ProposalViewModel> GetAllProposalsAndOrdersByUserNameFiltered (ProposalSerchViewModel serachModel,  string userName, string currentCulture);
+        SearchResult<ProposalViewModel> GetAllProposalsAndOrdersByUserNameFiltered (ProposalSerchViewModel serachModel,  string userName);
         /// <summary>
         /// Get proposal by proposalID
         /// </summary>

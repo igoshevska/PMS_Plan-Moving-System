@@ -15,7 +15,7 @@
                                 $uibModalInstance.close(result.response);
                             }
                             else {
-                                $scope.message = result;
+                                $scope.message = result.response;
                             }
                         });
                 }
@@ -82,12 +82,6 @@
                         }
                     });
                 }
-
-
-
-
-
-
 
                 $scope.loginWithFacebook = function (accessToken) {
                     accountService.loginWithFacebook(accessToken)

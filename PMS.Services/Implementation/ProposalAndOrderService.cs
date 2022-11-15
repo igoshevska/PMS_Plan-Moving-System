@@ -152,7 +152,7 @@ namespace PMS.Services.Implementation
             }
         }
 
-        public SearchResult<ProposalViewModel> GetAllProposalsAndOrdersByUserNameFiltered(ProposalSerchViewModel searchModel, string userName, string currentCulture)
+        public SearchResult<ProposalViewModel> GetAllProposalsAndOrdersByUserNameFiltered(ProposalSerchViewModel searchModel, string userName)
         {
             try
             {
@@ -233,7 +233,6 @@ namespace PMS.Services.Implementation
             }
         }
         #endregion
-       
 
         #region Users
         public UserViewModel GetCurrenUser(string getCurrentUser)

@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.IdentityModel.Tokens;
 using PMS.Data.Repositories;
 using PMS.Domain;
@@ -18,7 +15,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace PMS.Services.Implementation
 {
@@ -38,7 +34,6 @@ namespace PMS.Services.Implementation
         {
             _logger = logger;
             _usersRepo = usersRepo;
-            //_facebookAuthService = facebookAuthService;
             _configuration = configuration;
         }
         #endregion
@@ -46,6 +41,7 @@ namespace PMS.Services.Implementation
         {
             try
             {
+
                 var checkUser = _usersRepo.Query()
                                           .Include(x => x.Role)
                                           .Where(x => x.UserName == model.userName && x.Password == TextToEncrypt(model.password))

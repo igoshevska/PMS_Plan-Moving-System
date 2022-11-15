@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+using PMS.Domain;
 using PMS.Services.Interface;
 using PMS.ViewModels;
 using System;
@@ -21,15 +23,17 @@ namespace MoveIT.Controllers
         private readonly IAccount _accountService;
         private readonly IConfiguration _configuration;
         private readonly IFacebookAuth _facebookAuthService;
-
+        private readonly ILogger _logger;
 
         public AccountController(IAccount accountService,
                                  IConfiguration configuration,                                 
-                                 IFacebookAuth facebookAuthService)
+                                 IFacebookAuth facebookAuthService,
+                                 ILogger<AccountController> logger)
         {
             _accountService = accountService;
             _configuration = configuration;
             _facebookAuthService = facebookAuthService;
+            _logger = logger;
         }
 
         [AllowAnonymous]
@@ -37,23 +41,31 @@ namespace MoveIT.Controllers
         public ApiResponseModel<string> Login([FromBody] LoginUserViewModel model)
         {
 
-            var user = _accountService.CheckUserExistence(model);
+            User res = null;
+            var w = new Wrapper.Wrapper(_logger);
+            var errorResponse = w.CheckTheMethod(() => { res = _accountService.CheckUserExistence(model); });
 
-            if (user.UserName == null)
+            if (res.UserName == null)
                 return new ApiResponseModel<string>() 
-                { 
-                  responseCode = 400,
-                  responseMessage = "Error",
-                  response = "Error" 
+                {
+                    errorHandler = new ErrorHandler
+                    {
+                        responseCode = errorResponse.responseCode,
+                        responseMessage = errorResponse.responseMessage
+                    },
+                    response = "Error" 
                 };
 
             if (ModelState.IsValid)
             {
-                JwtSecurityToken jwtSecurityToken = _accountService.CreateJwtToken(user);
+                JwtSecurityToken jwtSecurityToken = _accountService.CreateJwtToken(res);
                 return new ApiResponseModel<string>()
                 {
-                    responseCode = 200,
-                    responseMessage = "OK",
+                    errorHandler = new ErrorHandler
+                    {
+                        responseCode = errorResponse.responseCode,
+                        responseMessage = errorResponse.responseMessage
+                    },
                     response = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
                 };
             }
@@ -61,8 +73,11 @@ namespace MoveIT.Controllers
             {
                 return new ApiResponseModel<string>()
                 {
-                    responseCode = 400,
-                    responseMessage = "Error",
+                    errorHandler = new ErrorHandler
+                    {
+                        responseCode = errorResponse.responseCode,
+                        responseMessage = errorResponse.responseMessage
+                    },
                     response = "Error"
                 };
             }
@@ -72,14 +87,20 @@ namespace MoveIT.Controllers
         [HttpPost]
         public async Task<ApiResponseModel<string>> LoginWithFacebook([FromBody]string accessToken)
         {
-            
-            var user = await _facebookAuthService.LoginWithFacebook(accessToken);
 
+            Task<User> res = null;
+            var w = new Wrapper.Wrapper(_logger);
+            var errorResponse = w.CheckTheMethod(() => { res = _facebookAuthService.LoginWithFacebook(accessToken); });
+
+            var user = await res;
             if (user.UserName == null)
                 return new ApiResponseModel<string>()
                 {
-                    responseCode = 400,
-                    responseMessage = "Error",
+                    errorHandler = new ErrorHandler
+                    {
+                        responseCode = errorResponse.responseCode,
+                        responseMessage = errorResponse.responseMessage
+                    },
                     response = "Error"
                 };
 
@@ -87,18 +108,24 @@ namespace MoveIT.Controllers
             {
                 JwtSecurityToken jwtSecurityToken = _accountService.CreateJwtToken(user);
                 return new ApiResponseModel<string>() 
-                {  
-                    responseCode=200,
-                    responseMessage = "OK",
-                    response=new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
+                {
+                    errorHandler = new ErrorHandler
+                    {
+                        responseCode = errorResponse.responseCode,
+                        responseMessage = errorResponse.responseMessage
+                    },
+                    response =new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
                 };
             }
             else
             {
                 return new ApiResponseModel<string>()
                 {
-                    responseCode = 400,
-                    responseMessage = "Error",
+                    errorHandler = new ErrorHandler
+                    {
+                        responseCode = errorResponse.responseCode,
+                        responseMessage = errorResponse.responseMessage
+                    },
                     response = "Error"
                 };
             }
@@ -108,15 +135,21 @@ namespace MoveIT.Controllers
         [HttpPost]
         public ApiResponseModel<string> RegisteringUser([FromBody] UserRegistrationViewModel  model)
         {
-            var result = _accountService.RegisterNewUser(model);
+
+            string res = null;
+            var w = new Wrapper.Wrapper(_logger);
+            var errorResponse = w.CheckTheMethod(() => { res = _accountService.RegisterNewUser(model); });
+
             return new ApiResponseModel<string>()
             {
-                responseCode = 200,
-                responseMessage = "OK",
-                response = result
-            };
+                errorHandler = new ErrorHandler
+                {
+                    responseCode = errorResponse.responseCode,
+                    responseMessage = errorResponse.responseMessage
+                },
+                response = res
+        };
         }
-
        
     }
 }
