@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using PMS.Configuration;
 using PMS.Data.Repositories;
 using PMS.Domain;
@@ -9,6 +12,7 @@ using PMS.ViewModels.Enums;
 using ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +29,8 @@ namespace PMS.Services.Implementation
         private readonly IRepository<PriceProposal> _priceProposalRepo;
         private readonly IRepository<Proposal> _proposalRepo;
         private readonly IRepository<Order> _orderRepo;
+        private readonly IOptions<RequestLocalizationOptions> _options;
+
         #endregion
 
         #region ctor
@@ -32,13 +38,15 @@ namespace PMS.Services.Implementation
                                  IRepository<User> usersRepo,
                                  IRepository<PriceProposal> priceProposalRepo,
                                  IRepository<Order> orderRepo,
-                                 IRepository<Proposal> proposalRepo)
+                                 IRepository<Proposal> proposalRepo,
+                                 IOptions<RequestLocalizationOptions> options)
         {
             _logger = logger;
             _usersRepo = usersRepo;
             _priceProposalRepo = priceProposalRepo;
             _orderRepo = orderRepo;
             _proposalRepo = proposalRepo;
+            _options = options;
         }
         #endregion
 
@@ -195,8 +203,38 @@ namespace PMS.Services.Implementation
         }
         #endregion
 
-        #region Users
+        #region Cultures
+        public RequestCulture GetCurrentCulture(string culture)
+        {
+            int charLocation = culture.IndexOf(",", StringComparison.Ordinal);
+            SetCurrentThreadCulture(new RequestCulture(culture.Substring(0, charLocation)));
+            return new RequestCulture(culture.Substring(0, charLocation));
+        }
+        private static void SetCurrentThreadCulture(RequestCulture requestCulture)
+        {
+            CultureInfo.CurrentCulture = requestCulture.Culture;
+            CultureInfo.CurrentUICulture = requestCulture.UICulture;
+        }
+        public List<string> GetAllCultures()
+        {
+            try 
+            {
+                var res = new List<string>();
+                foreach (var item in _options.Value.SupportedCultures)
+                {
+                    res.Add(item.ToString());
+                }
+                return res;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
+        #endregion
 
+        #region Users
         public UserViewModel GetCurrenUser(string getCurrentUser)
         {
             try

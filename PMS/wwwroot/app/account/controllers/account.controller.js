@@ -6,7 +6,7 @@
             function ($scope, $rootScope, accountService, $uibModal, NgTableParams, $state, pmsModels, $state) {
 
                 $scope.model = new pmsModels.LoginUserViewModel();
-
+                $scope.setColor = "";
                 $scope.login = function () {
                     accountService.login($scope.model)
                         .then(function (result) {
@@ -16,9 +16,11 @@
                             }
                             else {
                                 $scope.message = "Invalid username or password";
+                                $scope.color = 0;
                             }
                         });
                 }
+
 
                 $scope.registeringUser = function () {
                     var modalInstance = $uibModal.open({
@@ -33,6 +35,7 @@
                     modalInstance.result.then(function (result) {
                         if (result == "Success") {
                             $scope.message = "The registration was successful, now you can login";
+                            $scope.color = 1;
                         }
                     });
                 }
@@ -47,7 +50,12 @@
                 $scope.openLoginPage = function (uiUrl) {
                     location.replace(uiUrl + '/Account')
                 };
-     
+
+                
+
             }]);
+
 }());
+
+
 

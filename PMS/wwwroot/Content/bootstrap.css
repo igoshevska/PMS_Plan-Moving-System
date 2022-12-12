@@ -5934,9 +5934,11 @@ button.close {
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
+  background-color: black;
 }
 .modal-header .close {
   margin-top: -2px;
+  
 }
 .modal-title {
   margin: 0;

@@ -1,35 +1,33 @@
-﻿
-
-@*@using System.Globalization
-@using Microsoft.AspNetCore.Builder
-@using Microsoft.AspNetCore.Localization
-@using Microsoft.Extensions.Options
-@inject IOptions<RequestLocalizationOptions> LocaliztionOptions
-
-
-
-@{
-    var RequestCultureInfo = Context.Features.Get<IRequestCultureFeature>();
-}
-
-<div class="alert alert-info col-12" role="alert">
-    Current culture: @CultureInfo.CurrentCulture<br>
-    Current UI culture: @CultureInfo.CurrentUICulture
-</div>
-
-
-<div class="mt3 mb-3">
-    @foreach (var culture in LocaliztionOptions.Value.SupportedCultures)
-    {
-        <span class="badge rounded-pill" 
-        >@culture</span>
+﻿<style>
+    #background {
+        position: fixed;
+        top: 60%;
+        left: -50%;
+        width: 200%;
+        height: 0%;
+        z-index: -1;
     }
-</div>*@
+
+    #background img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        min-width: 50%;
+        min-height: 50%;
+        filter: blur(3px);
+    }
+</style>
 @{ 
     var apiUrl = ViewBag.apiUrl;
     var uiUrl = ViewBag.uiUrl;
 }
 
+<div id = background>
+    <img src="~/images/movinghouse.jpg" alt=""/>
+</div>
 
 <script>
     var apiUrl = '@apiUrl';

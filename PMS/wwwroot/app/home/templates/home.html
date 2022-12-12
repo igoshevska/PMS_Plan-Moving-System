@@ -1,7 +1,13 @@
-﻿
-<div>
-    <div style="font-weight: bold; margin-top: 40px; color: black"> Logged user: {{user.name}}  {{user.surname}}   Role: {{user.role.name}}</div>
+﻿<div>
+    <div class="col-sm-8">
+        <div style="font-weight: bold; margin-top: 40px; color: black"> Logged user: {{user.name}}  {{user.surname}}   Role: {{user.role.name}}</div>
+    </div>
+
+    <div class="col-sm-4">
+        <button  style="font-weight:bold; margin-top:40px; color:black"  type="button" title="Choose your currency" class="btn btn-default" ng-click="chooseCurrency()">{{currentLanguage}}</button>
+    </div>
 </div>
+
 <div>
     <button type="button" ng-if="user.role.id == 1" class="btn btn-default" ng-click="calculatePriceProposal()">Get Proposal Price</button>
     <hr>
@@ -36,7 +42,8 @@
                 <td>{{p.priceProposal.livingArea}}</td>
                 <td>{{p.priceProposal.atticArea}}</td>
                 <td>{{p.user.userName}}</td>
-                <td>{{p.priceProposal.priceEur}}</td>
+                <td ng-if="currentLanguage != 'mk'">{{p.priceProposal.priceEur}} eur</td>
+                <td ng-if="currentLanguage == 'mk'">{{p.priceProposal.priceMkd}} mkd</td>
                 <td>
                     <input type="checkbox" ng-model="p.priceProposal.hasPiano" disabled />
                 </td>

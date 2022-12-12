@@ -25,6 +25,12 @@
                                 templateUrl: "/app/home/templates/priceProposalDetails.html",
                                 controller: 'priceProposalDetailsController',
                             })
+                        .state('priceProposal',
+                            {
+                                url: "/priceProposal",
+                                templateUrl: "/app/home/templates/priceProposal.html",
+                                controller: 'priceProposalController',
+                            })
                 }
             ]);
 })();

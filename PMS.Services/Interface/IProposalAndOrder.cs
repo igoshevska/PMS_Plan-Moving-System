@@ -1,4 +1,5 @@
-﻿using PMS.Domain;
+﻿using Microsoft.AspNetCore.Localization;
+using PMS.Domain;
 using PMS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,18 @@ namespace PMS.Services.Interface
         /// </summary>
         /// <returns></returns>
         UserViewModel GetCurrenUser(string getCurrentUser);
+        /// <summary>
+        /// Get Current Culture
+        /// </summary>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public RequestCulture GetCurrentCulture(string culture);
+        /// <summary>
+        /// Get all cultures
+        /// </summary>
+        /// <returns></returns>
+        List<string> GetAllCultures();
+
 
 
     }
