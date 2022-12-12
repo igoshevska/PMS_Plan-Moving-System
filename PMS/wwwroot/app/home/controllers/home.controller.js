@@ -18,22 +18,7 @@
                 }
 
                 $scope.calculatePriceProposal = function () {
-                    var modalInstance = $uibModal.open({
-                        animation: false,
-                        scope: $scope,
-                        backdrop: 'static',
-                        templateUrl: "/app/home/templates/priceProposalModal.html",
-                        controller: 'priceProposalModalController',
-                        windowClass: 'modal custom-modal-width',
-                        size: 'md',
-                    });
-                    modalInstance.result.then(function (result) {
-                        if (result == "Success") {
-                            $scope.reloadTable();
-                        }
-                        else {
-                                "Error"
-                        }
+                    $state.go('priceProposal', {
                     });
                 }
 

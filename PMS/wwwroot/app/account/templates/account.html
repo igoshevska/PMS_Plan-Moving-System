@@ -12,7 +12,7 @@
         cursor: pointer;
         border-radius: 30px;
     }
-    .buttonRegister {
+    .buttonRegister0 {
         background-color: #33a5b7;
         border: none;
         color: #3c6976;
@@ -21,24 +21,44 @@
         text-decoration: none;
         display: inline-block;
         font-size: 12px;
-        margin: 4px 18px;
+        margin: 4px -12px;
         cursor: pointer;
         border-radius: 30px;
     }
+    .login-item{
+        text-align: center;
+        padding: 20px 20px 0;
+        margin: 0;
+    }
 </style>
 
+    <!--<h1 style="margin-left:108px">Login</h1>-->
+
+    <div class="login-item">
+            <div class="row" style="margin-bottom:10px">
+        <div style="margin-left:30px">Insert UserName</div>
+        <input style="margin-left:30px" type="text" name="userName" ng-model="model.userName">
+    </div>
+    <div class="row" style="margin-bottom:10px">
+        <div style="margin-left:30px">Insert Password</div>
+        <input style="margin-left:30px" type="password" name="password" ng-model="model.password" />
+    </div>
+    <div  ng-if="color == 0 "style="color:indianred; margin-left:25px">{{message}}</div>
+    <div ng-if="color == 1" style="color: #33b762; margin-left: 25px">{{message}}</div>
+    
+    <button style="margin-left:15px" class="buttonLogin" ng-click="login()">LOGIN </button>
+    <button style="margin-left:20px" class="buttonRegister0" ng-click="registeringUser()">REGISTER</button>
+    </div>
 
 
-<h1>Login</h1>
 
-<div class="row" style="margin-bottom:10px">
-    <div>Insert UserName</div>
-    <input type="text" name="userName" ng-model="model.userName">
-</div>
-<div class="row" style="margin-bottom:10px">
-    <div>Insert Password</div>
-    <input type="password" name="password" ng-model="model.password"/>
-</div>
-<div>{{message}}</div>
-<button class="buttonLogin" ng-click="login()">LOGIN </button>
-<button class="buttonRegister" ng-click="registeringUser()">REGISTER</button>
+
+
+
+
+
+
+
+
+
+

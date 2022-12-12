@@ -34,7 +34,7 @@
                     if (x.type === "password") {
                         x.type = "text";
                     } else {
-                        x.type = "password";s
+                        x.type = "password";
                     }
                 }
 
